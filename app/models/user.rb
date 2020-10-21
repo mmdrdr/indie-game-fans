@@ -13,5 +13,7 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
 
+  attachment :image
+
   validates :name, presence: true, length: { maximum: 20 }
 end

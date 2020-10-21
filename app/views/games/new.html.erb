@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-9">
+      <%= form_with model: @game do |f| %>
+        <% if @game.errors.any? %>
+          <%= @game.errors.count %>件のエラーが発生しました
+          <% @game.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
+        <%= f.attachment_field :image %>
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title %>
+        <%= f.label :introduction, "紹介文" %>
+        <%= f.text_area :introduction %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
