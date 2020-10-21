@@ -17,3 +17,18 @@ Genre.create!(
     {name: "ミュージック"}
   ]
 )
+
+User.create!(
+  name: "test",
+  introduction: "test",
+  email: "test@test",
+  password: 111111,
+  image: open("./app/assets/images/no_image.png")
+)
+
+Game.create!(
+  user_id: 1,
+  title: "test",
+  introduction: "test",
+  image: open("./app/assets/images/aircraft.jpg")
+)
