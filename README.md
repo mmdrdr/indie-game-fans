@@ -49,3 +49,4 @@ https://docs.google.com/spreadsheets/d/1KU05wv0bjrHyg0AT17tM8X1nJcjr2Nd2-wYLji7q
 ## 使用素材（予定）
 - O-DAN https://o-dan.net/ja/
 - Google Fonts https://fonts.google.com/
+- NES.css https://nostalgic-css.github.io/NES.css/

@@ -1,9 +1,8 @@
 <div class="col-xs-10">
   <% @games.each do |game| %>
-    <%= link_to game_path(game) do %>
-      <%= attachment_image_tag game, :image, :fill, 100, 100 %>
+      <%= attachment_image_tag game, :image, :fill, 150, 100 %>
       <%= game.title %>
       <%= game.introduction %>
-    <% end %>
+      <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
   <% end %>
 </div>

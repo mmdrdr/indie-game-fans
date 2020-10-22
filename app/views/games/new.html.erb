@@ -8,9 +8,9 @@
     <% end %>
     <%= f.attachment_field :image %>
     <%= f.label :title, "タイトル" %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "nes-input" %>
     <%= f.label :introduction, "紹介文" %>
-    <%= f.text_area :introduction %>
-    <%= f.submit %>
+    <%= f.text_area :introduction, class: "nes-textarea" %>
+    <%= f.submit class: "nes-btn is-primary" %>
   <% end %>
 </div>
