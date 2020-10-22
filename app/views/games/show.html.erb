@@ -3,10 +3,10 @@
     <h3><%= @game.title %></h3>
   </div>
   <div>
-    <%= attachment_image_tag @game, :image, :fill, 700, 350 %>
+    <%= attachment_image_tag @game, :image, size: "700x350" %>
   </div>
   <div>
-    <%= attachment_image_tag @user, :image, :fill, 100, 60 %>
+    <%= attachment_image_tag @user, :image, size: "100x60" %>
     <%= @user.name %>
     <% if @game.favorited_by?(current_user) %>
       <%= link_to game_favorites_path(@game), method: :delete do %>
