@@ -1,7 +1,5 @@
 <div class="col-xs-10">
-  <%= attachment_image_tag @game, :image, :fill, 100, 100 %>
   <%= @game.title %>
+  <%= attachment_image_tag @game, :image, :fill, 100, 100 %>
   <%= @game.introduction %>
-  <%= link_to "編集", edit_game_path(@game) %>
-  <%= link_to "削除", game_path(@game), method: :delete, data: {confirm: "#{@game.title}を削除します。本当に削除してよろしいですか？"} %>
 </div>
