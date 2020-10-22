@@ -40,3 +40,10 @@ Game.create!(
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   image: open("./app/assets/images/aircraft.jpg")
 )
+
+Game.create!(
+  user_id: 2,
+  title: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  image: open("./app/assets/images/aircraft.jpg")
+)
