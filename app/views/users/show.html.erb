@@ -7,9 +7,9 @@
       <%= link_to "退会", user_path(@user), method: :delete, data: {confirm: "本当に退会してよろしいですか？"}, class: "nes-btn is-error" %>
     <% else %>
       <% if current_user.following?(@user) %>
-        <%= link_to 'フォロー中', user_relationships_path(@user.id), method: :delete, class: "nes-btn is-success" %>
+        <%= link_to "フォロー中", user_relationships_path(@user.id), method: :delete, class: "nes-btn is-success" %>
       <% else %>
-        <%= link_to 'フォロー', user_relationships_path(@user.id), method: :POST, class: "nes-btn is-primary" %>
+        <%= link_to "フォローする", user_relationships_path(@user.id), method: :POST, class: "nes-btn is-primary" %>
       <% end %>
     <% end %>
   </div>

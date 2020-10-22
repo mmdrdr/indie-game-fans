@@ -6,11 +6,12 @@
         <%= message %>
       <% end %>
     <% end %>
+    <%= image_tag "no_image.png", size: "700×350" %>
     <%= f.attachment_field :image %>
     <%= f.label :name, "ユーザーネーム" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "nes-input" %>
     <%= f.label :introduction, "紹介文" %>
-    <%= f.text_area :introduction %>
+    <%= f.text_area :introduction, rows: "5", class: "nes-textarea" %>
     <%= f.submit %>
   <% end %>
 </div>
