@@ -8,6 +8,17 @@
   <div>
     <%= attachment_image_tag @user, :image, :fill, 100, 60 %>
     <%= @user.name %>
+    <% if @game.favorited_by?(current_user) %>
+      <%= link_to game_favorites_path(@game), method: :delete do %>
+        <i class="fa fa-heart" aria-hidden="true" style="color: #000;"></i>
+        <%= @game.favorites.count %>
+      <% end %>
+    <% else %>
+      <%= link_to game_favorites_path(@game), method: :post do %>
+        <i class="fa fa-heart-o" aria-hidden="true"></i>
+        <%= @game.favorites.count %>
+      <% end %>
+    <% end %>
   </div>
   <div>
     <%= @game.introduction %>
@@ -16,7 +27,7 @@
     <% @game.comments.each do |comment| %>
       <div>
         <%= image_tag('no_image.png', style: "width: 60px; height: 60px;") %>
-        <%= link_to user_path do %>
+        <%= link_to user_path(comment.user) do %>
           <%= comment.user.name %>
         <% end %>
         <div class="nes-balloon from-left">
