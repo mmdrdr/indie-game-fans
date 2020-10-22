@@ -1,0 +1,16 @@
+<div class="col-xs-10">
+  <%= form_with model: @user do |f| %>
+    <% if @user.errors.any? %>
+      <%= @user.errors.count %>件のエラーが発生しました
+      <% @user.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+    <%= f.attachment_field :image %>
+    <%= f.label :name, "ユーザーネーム" %>
+    <%= f.text_field :name %>
+    <%= f.label :introduction, "紹介文" %>
+    <%= f.text_area :introduction %>
+    <%= f.submit %>
+  <% end %>
+</div>

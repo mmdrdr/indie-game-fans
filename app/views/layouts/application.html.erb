@@ -4,12 +4,57 @@
     <title>IndieGameFans</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/19bf4597ee.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="header col-xs-2">
+          <nav>
+            <ul>
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to "トップページ", root_path %>
+                </li>
+                <li>
+                  <%= link_to "ゲームを探す", games_path %>
+                </li>
+                <li>
+                  <%= link_to "制作者を探す", users_path %>
+                </li>
+                <li>
+                  <%= link_to "マイページ", user_path(current_user) %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to "トップページ", root_path %>
+                </li>
+                <li>
+                  <%= link_to "ゲームを探す", games_path %>
+                </li>
+                <li>
+                  <%= link_to "制作者を探す", users_path %>
+                </li>
+                <li>
+                  <%= link_to "新規登録", new_user_registration_path %>
+                </li>
+                <li>
+                  <%= link_to "ログイン", new_user_session_path %>
+                </li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,13 +1,37 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-3">
-    </div>
-    <div class="col-xs-9">
-      <%= attachment_image_tag @game, :image, :fill, 100, 100 %>
-      <%= @game.title %>
-      <%= @game.introduction %>
-      <%= link_to "編集", edit_game_path(@game) %>
-      <%= link_to "削除", game_path(@game), method: :delete, data: {confirm: "#{@game.title}を削除します。本当に削除してよろしいですか？"} %>
-    </div>
+<div class="col-xs-10">
+  <div>
+    <h3><%= @game.title %></h3>
+  </div>
+  <div>
+    <%= attachment_image_tag @game, :image, :fill, 700, 350 %>
+  </div>
+  <div>
+    <%= attachment_image_tag @user, :image, :fill, 100, 60 %>
+    <%= @user.name %>
+  </div>
+  <div>
+    <%= @game.introduction %>
+  </div>
+  <div>
+    <% @game.comments.each do |comment| %>
+      <div>
+        <%= image_tag('no_image.png', style: "width: 60px; height: 60px;") %>
+        <%= link_to user_path do %>
+          <%= comment.user.name %>
+        <% end %>
+        <div class="nes-balloon from-left">
+          <%= comment.comment %>
+        </div>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", game_comment_path(comment.game, comment), method: :delete, class: "nes-btn btn-danger" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= form_with(model:[@game, @comment]) do |f| %>
+      <%= f.text_area :comment, rows:'5', class: "nes-textarea" %>
+      <%= f.submit "送信する", class: "nes-btn is-primary" %>
+    <% end %>
   </div>
 </div>
