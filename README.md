@@ -50,3 +50,4 @@ https://docs.google.com/spreadsheets/d/1KU05wv0bjrHyg0AT17tM8X1nJcjr2Nd2-wYLji7q
 - O-DAN https://o-dan.net/ja/
 - Google Fonts https://fonts.google.com/
 - NES.css https://nostalgic-css.github.io/NES.css/
+- Font Awesome https://fontawesome.com/
