@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -18,6 +19,15 @@
               <% if user_signed_in? %>
                 <li>
                   <%= link_to "トップページ", root_path %>
+                </li>
+                <li>
+                  <%= link_to "ゲームを探す", games_path %>
+                </li>
+                <li>
+                  <%= link_to "制作者を探す", users_path %>
+                </li>
+                <li>
+                  <%= link_to "マイページ", user_path(current_user) %>
                 </li>
                 <li>
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
@@ -37,9 +47,6 @@
                 </li>
                 <li>
                   <%= link_to "ログイン", new_user_session_path %>
-                </li>
-                <li>
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                 </li>
               <% end %>
             </ul>

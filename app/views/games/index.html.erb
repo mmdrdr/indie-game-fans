@@ -2,7 +2,7 @@
   <% @games.each do |game| %>
       <%= attachment_image_tag game, :image, :fill, 150, 100 %>
       <%= game.title %>
-      <%= game.introduction %>
+      <%= game.introduction.truncate(20) %>
       <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
   <% end %>
 </div>

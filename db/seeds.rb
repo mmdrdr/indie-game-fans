@@ -20,15 +20,23 @@ Genre.create!(
 
 User.create!(
   name: "test",
-  introduction: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   email: "test@test",
   password: 111111,
+  image: open("./app/assets/images/no_image.png")
+)
+
+User.create!(
+  name: "test2",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  email: "test2@test",
+  password: 222222,
   image: open("./app/assets/images/no_image.png")
 )
 
 Game.create!(
   user_id: 1,
   title: "test",
-  introduction: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   image: open("./app/assets/images/aircraft.jpg")
 )

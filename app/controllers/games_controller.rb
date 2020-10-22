@@ -5,8 +5,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(game_params)
-    @game.user_id = current_user.id
+    @game = current_user.games.new(game_params)
     @game.save
     redirect_to games_path
   end
@@ -17,6 +16,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
