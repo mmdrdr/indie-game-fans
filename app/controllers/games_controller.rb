@@ -6,8 +6,11 @@ class GamesController < ApplicationController
 
   def create
     @game = current_user.games.new(game_params)
-    @game.save
-    redirect_to games_path
+    if @game.save
+      redirect_to games_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -16,11 +19,21 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @user = User.find_by(id: @game.user_id)
     @comment = Comment.new
   end
 
   def edit
     @game = Game.find(params[:id])
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    if @game.update(game_params)
+      redirect_to game_path(@game)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -31,7 +44,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:user_id, :title, :introduction, :image_id)
+    params.require(:game).permit(:user_id, :title, :introduction, :image)
   end
 
 end

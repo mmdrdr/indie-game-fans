@@ -1,4 +1,5 @@
 <div class="col-xs-10">
+  <h3>制作者一覧</h3>
   <% @users.each do |user| %>
     <table class="table">
       <tr>
@@ -9,7 +10,7 @@
           <%= user.name %>
         </td>
         <td>
-          <%= user.introduction.truncate(20) %>
+          <%= truncate(user.introduction, :length => 20) %>
         </td>
         <td>
           <%= link_to "もっと　くわしく", user_path(user), class: "nes-btn is-warning" %>
