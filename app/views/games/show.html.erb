@@ -1,4 +1,4 @@
-<div class="col-10">
+<div class="col-9 offset-1">
   <div>
     <h3><%= @game.title %></h3>
   </div>
@@ -6,7 +6,7 @@
     <%= attachment_image_tag @game, :image, size: "700x350" %>
   </div>
   <div>
-    <%= attachment_image_tag @user, :image, size: "100x60" %>
+    <%= attachment_image_tag @user, :image, size: "50x50" %>
     <%= @user.name %>
     <% if user_signed_in? %>
       <% if @game.favorited_by?(current_user) %>
@@ -33,18 +33,26 @@
   <div>
     <h4>みんなのコメント</h4>
     <% @game.comments.each do |comment| %>
-      <div>
-        <%= image_tag('no_image.png', style: "width: 60px; height: 60px;") %>
-        <%= link_to user_path(comment.user) do %>
-          <%= comment.user.name %>
-        <% end %>
-        <div class="nes-balloon from-left">
-          <%= comment.comment %>
-        </div>
-        <% if comment.user == current_user %>
-          <%= link_to "削除", game_comment_path(comment.game, comment), method: :delete, class: "nes-btn btn-danger" %>
-        <% end %>
-      </div>
+      <table class="table">
+        <tr>
+          <td style="width:10%">
+            <%= attachment_image_tag comment.user, :image, size: "50x50", placeholder: 'no_image.png' %>
+          </td>
+          <td style="width:20%">
+            <%= link_to user_path(comment.user) do %>
+              <%= comment.user.name %>
+            <% end %>
+          </td>
+          <td style="width:50%">
+            <%= truncate(comment.comment, :length => 30) %>
+          </td>
+          <td style="width:20%">
+            <% if comment.user == current_user %>
+              <%= link_to "さくじょ", game_comment_path(comment.game, comment), method: :delete, class: "nes-btn is-error" %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
     <% end %>
   </div>
   <div>

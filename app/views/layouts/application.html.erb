@@ -8,6 +8,7 @@
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -20,35 +21,35 @@
             <ul>
               <% if user_signed_in? %>
                 <li>
-                  <%= link_to "トップ", root_path %>
+                  <%= link_to "TOP", root_path %>
                 </li>
                 <li>
-                  <%= link_to "ゲーム", games_path %>
+                  <%= link_to "GAME", games_path %>
                 </li>
                 <li>
-                  <%= link_to "クリエイター", users_path %>
+                  <%= link_to "CREATOR", users_path %>
                 </li>
                 <li>
-                  <%= link_to "マイページ", user_path(current_user) %>
+                  <%= link_to "MY PAGE", user_path(current_user) %>
                 </li>
                 <li>
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                  <%= link_to "LOG OUT", destroy_user_session_path, method: :delete %>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to "トップ", root_path %>
+                  <%= link_to "TOP", root_path %>
                 </li>
                 <li>
-                  <%= link_to "ゲーム", games_path %>
+                  <%= link_to "GAME", games_path %>
                 </li>
                 <li>
-                  <%= link_to "クリエイター", users_path %>
+                  <%= link_to "CREATOR", users_path %>
                 </li>
                 <li>
-                  <%= link_to "とうろく", new_user_registration_path %>
+                  <%= link_to "SIGN UP", new_user_registration_path %>
                 </li>
                 <li>
-                  <%= link_to "ログイン", new_user_session_path %>
+                  <%= link_to "LOG IN", new_user_session_path %>
                 </li>
               <% end %>
             </ul>

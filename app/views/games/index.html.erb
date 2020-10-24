@@ -1,4 +1,4 @@
-<div class="col-10">
+<div class="col-9 offset-1">
   <h3>ゲームをさがす</h3>
   <%= form_tag(search_path, method: :get) do %>
     <%= text_field_tag 'search[content]', "", class: "nes-input" %>
@@ -7,11 +7,23 @@
   <% end %>
   <h3>ゲームいちらん</h3>
   <% @games.each do |game| %>
-    <div>
-      <%= attachment_image_tag game, :image, :fill, 150, 100 %>
-      <%= game.title %>
-      <%= truncate(game.introduction, :length => 20) %>
-      <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
+    <div class="game_table">
+      <table class="table">
+        <tr>
+          <td>
+            <%= attachment_image_tag game, :image, size: "160x60"%>
+          </td>
+          <td>
+            <%= game.title %>
+          </td>
+          <td> 
+            <%= truncate(game.introduction, :length => 20) %>
+          </td>
+          <td>
+            <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
+          </td>
+        </tr>
+      </table>
     </div>
   <% end %>
 </div>
