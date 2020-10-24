@@ -19,7 +19,7 @@ Genre.create!(
 )
 
 User.create!(
-  name: "test",
+  name: "user1",
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   email: "test@test",
   password: 111111,
@@ -27,10 +27,18 @@ User.create!(
 )
 
 User.create!(
-  name: "test2",
+  name: "user2",
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   email: "test2@test",
   password: 222222,
+  image: open("./app/assets/images/no_image.png")
+)
+
+User.create!(
+  name: "user3",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  email: "test3@test",
+  password: 333333,
   image: open("./app/assets/images/no_image.png")
 )
 
@@ -46,4 +54,47 @@ Game.create!(
   title: "test",
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   image: open("./app/assets/images/aircraft.jpg")
+)
+
+Game.create!(
+  user_id: 3,
+  title: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  image: open("./app/assets/images/aircraft.jpg")
+)
+
+Comment.create!(
+  user_id: 1,
+  game_id: 1,
+  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+)
+
+Comment.create!(
+  user_id: 2,
+  game_id: 1,
+  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+)
+
+Comment.create!(
+  user_id: 3,
+  game_id: 1,
+  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+)
+
+Comment.create!(
+  user_id: 1,
+  game_id: 2,
+  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+)
+
+Comment.create!(
+  user_id: 2,
+  game_id: 2,
+  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+)
+
+Comment.create!(
+  user_id: 3,
+  game_id: 2,
+  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
 )
