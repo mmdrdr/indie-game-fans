@@ -1,7 +1,7 @@
 <% if @model == "game" %>
-  <h3>「<%= @content %>」で検索したゲーム一覧</h3>
+  <h3>"<%= @content %>"でけんさくしたゲーム</h3>
   <%= render 'games/index', games: @records %>
 <% else @model == "user" %>
-  <h3>「<%= @content %>」で検索した制作者一覧</h3>
+  <h3>"<%= @content %>"でけんさくしたクリエイター</h3>
   <%= render 'users/index', users: @records %>
 <% end %>

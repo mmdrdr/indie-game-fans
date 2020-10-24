@@ -1,7 +1,7 @@
 <div class="col-10">
   <%= form_with(model: @game, local: true) do |f| %>
     <% if @game.errors.any? %>
-      <%= @game.errors.count %>件のエラーが発生しました
+      <%= @game.errors.count %>件のエラーがあります
       <% @game.errors.full_messages.each do |message| %>
         <%= message %>
       <% end %>
@@ -31,7 +31,7 @@
     </script>
     <%= f.label :title, "タイトル" %>
     <%= f.text_field :title, class: "nes-input" %>
-    <%= f.label :introduction, "紹介文" %>
+    <%= f.label :introduction, "せつめい" %>
     <%= f.text_area :introduction, class: "nes-textarea" %>
     <%= f.submit class: "nes-btn is-primary" %>
   <% end %>

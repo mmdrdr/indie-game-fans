@@ -3,12 +3,12 @@
     <%= attachment_image_tag @user, :image, size: "100x60" %>
     <%= @user.name %>
     <% if @user == current_user %>
-      <%= link_to "編集", edit_user_path(@user), class: "nes-btn is-primary" %>
-      <%= link_to "退会", user_path(@user), method: :delete, data: {confirm: "本当に退会してよろしいですか？"}, class: "nes-btn is-error" %>
+      <%= link_to "へんしゅう", edit_user_path(@user), class: "nes-btn is-primary" %>
+      <%= link_to "たいかい", user_path(@user), method: :delete, data: {confirm: "ほんとうに たいかい してよろしいですか？"}, class: "nes-btn is-error" %>
     <% else %>
       <% if user_signed_in? %>
         <% if current_user.following?(@user) %>
-          <%= link_to "フォロー中", user_relationships_path(@user.id), method: :delete, class: "nes-btn is-success" %>
+          <%= link_to "フォローしてます", user_relationships_path(@user.id), method: :delete, class: "nes-btn is-success" %>
         <% else %>
           <%= link_to "フォローする", user_relationships_path(@user.id), method: :POST, class: "nes-btn is-primary" %>
         <% end %>
@@ -19,9 +19,9 @@
     <%= @user.introduction %>
   </div>
   <div>
-    <h4>制作ゲーム一覧</h4>
+    <h4>つくったゲームたち</h4>
     <% if @user == current_user %>
-      <%= link_to "新作を登録する", new_game_path, class: "nes-btn is-success" %>
+      <%= link_to "ゲームをついか", new_game_path, class: "nes-btn is-success" %>
     <% end %>
     <% @games.each do |game| %>
       <div>

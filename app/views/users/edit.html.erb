@@ -1,7 +1,7 @@
 <div class="col-10">
   <%= form_with model: @user do |f| %>
     <% if @user.errors.any? %>
-      <%= @user.errors.count %>件のエラーが発生しました
+      <%= @user.errors.count %>件のエラーがあります
       <% @user.errors.full_messages.each do |message| %>
         <%= message %>
       <% end %>
@@ -31,7 +31,7 @@
     </script>
     <%= f.label :name, "ユーザーネーム" %>
     <%= f.text_field :name, class: "nes-input" %>
-    <%= f.label :introduction, "紹介文" %>
+    <%= f.label :introduction, "せつめい" %>
     <%= f.text_area :introduction, rows: "5", class: "nes-textarea" %>
     <%= f.submit %>
   <% end %>

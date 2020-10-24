@@ -31,7 +31,7 @@
     <%= @game.introduction %>
   </div>
   <div>
-    <h4>コメント一覧</h4>
+    <h4>みんなのコメント</h4>
     <% @game.comments.each do |comment| %>
       <div>
         <%= image_tag('no_image.png', style: "width: 60px; height: 60px;") %>
@@ -48,13 +48,13 @@
     <% end %>
   </div>
   <div>
-    <h4>コメントを投稿する</h4>
+    <h4>コメントする</h4>
     <%= form_with(model:[@game, @comment]) do |f| %>
       <%= f.text_area :comment, rows: "5", class: "nes-textarea" %>
       <% if user_signed_in? %>
-        <%= f.submit "送信する", class: "nes-btn is-primary" %>
+        <%= f.submit "とうこう", class: "nes-btn is-primary" %>
       <% else %>
-        <%= link_to "送信する", new_user_session_path, class: "nes-btn is-primary" %>
+        <%= link_to "とうこう", new_user_session_path, class: "nes-btn is-primary" %>
       <% end %>
     <% end %>
   </div>

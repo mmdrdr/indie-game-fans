@@ -1,11 +1,11 @@
 <div class="col-10">
-  <h3>制作者を探す</h3>
+  <h3>クリエイターをさがす</h3>
   <%= form_tag(search_path, method: :get) do %>
     <%= text_field_tag 'search[content]', "", class: "nes-input" %>
     <%= hidden_field_tag :model, "user" %>
     <%= submit_tag 'Search', class: "nes-btn is-primary" %>
   <% end %>
-  <h3>制作者一覧</h3>
+  <h3>クリエイターたち</h3>
   <% @users.each do |user| %>
     <table class="table">
       <tr>
