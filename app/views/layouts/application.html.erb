@@ -35,6 +35,9 @@
                 <li>
                   <%= link_to "LOG OUT", destroy_user_session_path, method: :delete %>
                 </li>
+                <li>
+                  <%= link_to "CONTACT", new_contacts_path %>
+                </li>
               <% else %>
                 <li>
                   <%= link_to "TOP", root_path %>
@@ -50,6 +53,9 @@
                 </li>
                 <li>
                   <%= link_to "LOG IN", new_user_session_path %>
+                </li>
+                <li>
+                  <%= link_to "CONTACT", new_contacts_path %>
                 </li>
               <% end %>
             </ul>
