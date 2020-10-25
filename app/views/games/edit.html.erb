@@ -1,0 +1,16 @@
+<div class="right-all col-9 offset-1">
+  <%= form_with model: @game do |f| %>
+    <% if @game.errors.any? %>
+      <%= @game.errors.count %>件のエラーが発生しました
+      <% @game.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+    <%= f.attachment_field :image %>
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+    <%= f.label :introduction, "せつめい" %>
+    <%= f.text_area :introduction %>
+    <%= f.submit %>
+  <% end %>
+</div>

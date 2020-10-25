@@ -13,5 +13,20 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
 
+  attachment :image
+
   validates :name, presence: true, length: { maximum: 20 }
+
+  def follow(user_id)
+    follower.create(followed_id: user_id)
+  end
+  
+  def unfollow(user_id)
+    follower.find_by(followed_id: user_id).destroy
+  end
+  
+  def following?(user)
+    following_user.include?(user)
+  end
+
 end

@@ -1,0 +1,18 @@
+<% users.each do |user| %>
+  <table class="table">
+    <tr>
+      <td>
+        <%= attachment_image_tag user, :image, :fill, 150, 100 %>
+      </td>
+      <td>
+        <%= user.name %>
+      </td>
+      <td>
+        <%= truncate(user.introduction, :length => 20) %>
+      </td>
+      <td>
+        <%= link_to "もっと　くわしく", user_path(user), class: "nes-btn is-warning" %>
+      </td>
+    </tr>
+  </table>
+<% end %>

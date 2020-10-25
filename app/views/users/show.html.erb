@@ -1,0 +1,47 @@
+<div class="right-all col-9 offset-1">
+  <div>
+    <%= attachment_image_tag @user, :image, size: "100x100" %>
+    <%= @user.name %>
+    <% if @user == current_user %>
+      <%= link_to "へんしゅう", edit_user_path(@user), class: "nes-btn is-primary" %>
+      <%= link_to "たいかい", user_path(@user), method: :delete, data: {confirm: "ほんとうに たいかい してよろしいですか？"}, class: "nes-btn is-error" %>
+    <% else %>
+      <% if user_signed_in? %>
+        <% if current_user.following?(@user) %>
+          <%= link_to "フォローしてます", user_relationships_path(@user.id), method: :delete, class: "nes-btn is-success" %>
+        <% else %>
+          <%= link_to "フォローする", user_relationships_path(@user.id), method: :POST, class: "nes-btn is-primary" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <%= @user.introduction %>
+  </div>
+  <div>
+    <h4>つくったゲーム</h4>
+    <% if @user == current_user %>
+      <%= link_to "ゲームをついか", new_game_path, class: "nes-btn is-success" %>
+    <% end %>
+    <% @games.each do |game| %>
+      <div class="game_table">
+        <table class="table">
+          <tr>
+            <td>
+              <%= attachment_image_tag game, :image, :fill, 150, 100 %>
+            </td>
+            <td>
+              <%= game.title %>
+            </td>
+            <td>
+              <%= game.introduction.truncate(20) %>
+            </td>
+            <td>
+              <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>

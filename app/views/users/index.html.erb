@@ -1,0 +1,27 @@
+<div class="right-all col-9 offset-1">
+  <h3>クリエイターをさがす</h3>
+  <%= form_tag(search_path, method: :get) do %>
+    <%= text_field_tag 'search[content]', "", class: "nes-input" %>
+    <%= hidden_field_tag :model, "user" %>
+    <%= submit_tag 'Search', class: "nes-btn is-primary" %>
+  <% end %>
+  <h3>クリエイターたち</h3>
+  <% @users.each do |user| %>
+    <table class="table">
+      <tr>
+        <td>
+          <%= attachment_image_tag user, :image, size: "50x50" %>
+        </td>
+        <td>
+          <%= user.name %>
+        </td>
+        <td>
+          <%= truncate(user.introduction, :length => 20) %>
+        </td>
+        <td>
+          <%= link_to "もっと　くわしく", user_path(user), class: "nes-btn is-warning" %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

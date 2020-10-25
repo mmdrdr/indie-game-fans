@@ -1,0 +1,18 @@
+<% games.each do |game| %>
+  <table class="table">
+    <tr>
+      <td>
+        <%= attachment_image_tag game, :image, :fill, 150, 100 %>
+      </td>
+      <td>
+        <%= game.title %>
+      </td>
+      <td>
+        <%= truncate(game.introduction, :length => 20) %>
+      </td>
+      <td>
+        <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
+      </td>
+    </tr>
+  </table>
+<% end %>
