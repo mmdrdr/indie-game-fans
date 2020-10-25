@@ -1,16 +1,38 @@
-<div class="col-xs-10">
+<div class="right-all col-9 offset-1">
   <%= form_with model: @user do |f| %>
     <% if @user.errors.any? %>
-      <%= @user.errors.count %>件のエラーが発生しました
+      <%= @user.errors.count %>件のエラーがあります
       <% @user.errors.full_messages.each do |message| %>
         <%= message %>
       <% end %>
     <% end %>
-    <%= f.attachment_field :image %>
+    <%= image_tag "no_image.png", size: "700x350", id: "img_prev" %>
+    <%= f.attachment_field :image, id: "post_post_img" %>
+    <!--JavaScroptの読み込み-->
+    <script type="text/javascript">
+      $(function() {
+        // 関数の宣言 //
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            // FileReaderを読み込んでローカルファイルを操作できるようにする //
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              $('#img_prev').attr('src', e.target.result);
+            }
+            /* ファイルをData URIとして読み込む。Data URI=外部ファイルを直接ウェブページに埋め込む手段。 */
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        // 新しい画像をアップロードした際の処理 //
+        $("#post_post_img").change(function() {
+          readURL(this);
+        });
+      });
+    </script>
     <%= f.label :name, "ユーザーネーム" %>
-    <%= f.text_field :name %>
-    <%= f.label :introduction, "紹介文" %>
-    <%= f.text_area :introduction %>
+    <%= f.text_field :name, class: "nes-input" %>
+    <%= f.label :introduction, "せつめい" %>
+    <%= f.text_area :introduction, rows: "5", class: "nes-textarea" %>
     <%= f.submit %>
   <% end %>
 </div>

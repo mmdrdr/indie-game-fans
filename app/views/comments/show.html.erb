@@ -1,0 +1,7 @@
+<div class="col-9 offset-1">
+  <%= attachment_image_tag @comment.user, :image, size: "100x60", placeholder: 'no_image.png' %>
+  <%= link_to user_path(@comment.user) do %>
+    <%= @comment.user.name %>
+  <% end %>
+  <%= @comment.comment %>
+</div>
