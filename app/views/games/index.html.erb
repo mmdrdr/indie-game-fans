@@ -5,25 +5,27 @@
     <%= hidden_field_tag :model, "game" %>
     <%= submit_tag 'Search', class: "nes-btn is-primary" %>
   <% end %>
-  <h3>ゲームいちらん</h3>
-  <% @games.each do |game| %>
-    <div class="game_table">
-      <table class="table">
-        <tr>
-          <td>
-            <%= attachment_image_tag game, :image, size: "160x60"%>
-          </td>
-          <td>
-            <%= game.title %>
-          </td>
-          <td> 
-            <%= truncate(game.introduction, :length => 20) %>
-          </td>
-          <td>
-            <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
-          </td>
-        </tr>
-      </table>
-    </div>
-  <% end %>
+  <div class="table-box">
+    <h3>ゲームいちらん</h3>
+    <% @games.each do |game| %>
+      <div class="table-item">
+        <table class="table">
+          <tr>
+            <td class="align-middle">
+              <%= attachment_image_tag game, :image, size: "160x60"%>
+            </td>
+            <td class="align-middle">
+              <%= game.title %>
+            </td>
+            <td class="align-middle"> 
+              <%= truncate(game.introduction, :length => 20) %>
+            </td>
+            <td class="align-middle">
+              <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
 </div>
