@@ -30,29 +30,31 @@
   <div>
     <%= @game.introduction %>
   </div>
-  <div>
+  <div class="table-all">
     <h4>みんなのコメント</h4>
     <% @game.comments.each do |comment| %>
-      <table class="table">
-        <tr>
-          <td style="width:10%">
-            <%= attachment_image_tag comment.user, :image, size: "50x50", placeholder: 'no_image.png' %>
-          </td>
-          <td style="width:20%">
-            <%= link_to user_path(comment.user) do %>
-              <%= comment.user.name %>
-            <% end %>
-          </td>
-          <td style="width:50%">
-            <%= truncate(comment.comment, :length => 30) %>
-          </td>
-          <td style="width:20%">
-            <% if comment.user == current_user %>
-              <%= link_to "さくじょ", game_comment_path(comment.game, comment), method: :delete, class: "nes-btn is-error" %>
-            <% end %>
-          </td>
-        </tr>
-      </table>
+      <div class="table-item">
+        <table class="table">
+          <tr>
+            <td style="width:10%">
+              <%= attachment_image_tag comment.user, :image, size: "50x50", placeholder: 'no_image.png' %>
+            </td>
+            <td style="width:20%">
+              <%= link_to user_path(comment.user) do %>
+                <%= comment.user.name %>
+              <% end %>
+            </td>
+            <td style="width:50%">
+              <%= truncate(comment.comment, :length => 30) %>
+            </td>
+            <td style="width:20%">
+              <% if comment.user == current_user %>
+                <%= link_to "さくじょ", game_comment_path(comment.game, comment), method: :delete, class: "nes-btn is-error" %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
     <% end %>
   </div>
   <div>

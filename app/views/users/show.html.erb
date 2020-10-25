@@ -18,13 +18,13 @@
   <div>
     <%= @user.introduction %>
   </div>
-  <div>
+  <div class="table-all">
     <h4>つくったゲーム</h4>
     <% if @user == current_user %>
       <%= link_to "ゲームをついか", new_game_path, class: "nes-btn is-success" %>
     <% end %>
     <% @games.each do |game| %>
-      <div class="game_table">
+      <div class="table-item">
         <table class="table">
           <tr>
             <td>
