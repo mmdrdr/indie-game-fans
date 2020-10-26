@@ -1,5 +1,5 @@
-<div class="right-all col-9 offset-1">
-  <h2>おといあわせ</h2>
+<div class="right-all col-8 offset-1">
+  <h1>おといあわせ</h1>
   <%= form_with(model: @contact, local: true) do |f| %>
     <% if @contact.errors.any? %>
       <%= @contact.errors.count %>件のエラーがあります
@@ -10,11 +10,11 @@
       <% end %>
     <% end %>
     <%= f.label :name, "おなまえ" %>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name, class: "nes-input" %><br>
     <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autocomplete: "email" %><br>
+    <%= f.email_field :email, autocomplete: "email", class: "nes-input" %><br>
     <%= f.label :content, "ないよう" %>
-    <%= f.text_field :content %><br>
+    <%= f.text_field :content, class: "nes-textarea" %><br>
     <%= f.submit "おくる", class: "nes-btn is-primary" %>
   <% end %>
 </div>

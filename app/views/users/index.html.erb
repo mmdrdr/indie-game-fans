@@ -1,26 +1,26 @@
-<div class="right-all col-9 offset-1">
-  <h3>クリエイターをさがす</h3>
+<div class="right-all col-8 offset-1">
+  <h1>クリエイターをさがす</h1>
   <%= form_tag(search_path, method: :get) do %>
     <%= text_field_tag 'search[content]', "", class: "nes-input" %>
     <%= hidden_field_tag :model, "user" %>
     <%= submit_tag 'Search', class: "nes-btn is-primary" %>
   <% end %>
   <div class="table-all">
-    <h3>クリエイターたち</h3>
+    <h1>クリエイターたち</h1>
     <% @users.each do |user| %>
       <div class="table-item">
-        <table class="table">
+        <table class="table table-borderless">
           <tr>
-            <td>
+            <td class="align-middle">
               <%= attachment_image_tag user, :image, size: "50x50" %>
             </td>
-            <td>
+            <td class="align-middle">
               <%= user.name %>
             </td>
-            <td>
+            <td class="align-middle">
               <%= truncate(user.introduction, :length => 20) %>
             </td>
-            <td>
+            <td class="align-middle">
               <%= link_to "もっと　くわしく", user_path(user), class: "nes-btn is-warning" %>
             </td>
           </tr>

@@ -1,5 +1,5 @@
-<div class="right-all col-9 offset-1">
-  <%= form_with model: @user do |f| %>
+<div class="right-all col-8 offset-1">
+  <%= form_with(model: @user, local: true) do |f| %>
     <% if @user.errors.any? %>
       <%= @user.errors.count %>件のエラーがあります
       <% @user.errors.full_messages.each do |message| %>

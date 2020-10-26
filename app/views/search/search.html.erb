@@ -1,17 +1,9 @@
-<div class="right-all col-9 offset-1">
+<div class="right-all col-8 offset-1">
   <% if @model == "game" %>
-    <div class="table-all">
-      <h3>"<%= @content %>"でけんさくしたゲーム</h3>
-    </div>
-    <div class="table-item">
-      <%= render 'games/index', games: @records %>
-    </div>
+    <h1>"<%= @content %>"でけんさくしたゲームたち</h1>
+    <%= render 'games/index', games: @records %>
   <% else @model == "user" %>
-    <div class="table-all">
-      <h3>"<%= @content %>"でけんさくしたクリエイター</h3>
-    </div>
-    <div class="table-item">
-      <%= render 'users/index', users: @records %>
-    </div>
+    <h1>"<%= @content %>"でけんさくしたクリエイターたち</h1>
+    <%= render 'users/index', users: @records %>
   <% end %>
 </div>

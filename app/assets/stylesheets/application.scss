@@ -23,26 +23,37 @@ html,body{
 
 body{
   background-color: #ffcf10;
-  font-family: "Chango", "Nico Moji";
+  font-family: "Chango", "Nico Moji", "Kosugi Maru";
 }
 
 .header{
   height: 100vh;
-  border-right: 3px solid #000;
+  border-right: 3px solid #212529;
   text-align: right;
 }
 
-.right-all{
-  margin-top: 65px;
+.header a{
+  font-size: 1.75rem;
+  color: #212529;
+  padding-right: 10px;
 }
 
-h1{
+.right-all{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.top{
   font-size: 10em;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 900;
 }
 
 li{
   list-style: none;
-  padding-top: 80px;
+  padding-top: 27%;
 }
 
 .nes-input{
@@ -54,5 +65,24 @@ li{
 }
 
 .table-item{
+  margin-right: 20px;
   margin-top: 20px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .5);
 }
+
+/*
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #212529;
+    color: #ffcf10;
+  }
+
+  .header{
+    border-right: 3px solid #ffcf10;
+  }
+
+  .header a{
+  color: #ffcf10;
+  }
+}
+*/
