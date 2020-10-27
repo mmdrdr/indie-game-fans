@@ -39,6 +39,21 @@ Genre.create!(
   ]
 )
 
+GameGenre.create!(
+  game_id: 1,
+  genre_id: 1
+)
+
+GameGenre.create!(
+  game_id: 2,
+  genre_id: 2
+)
+
+GameGenre.create!(
+  game_id: 3,
+  genre_id: 3
+)
+
 User.create!(
   name: "user1",
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",

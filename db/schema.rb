@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 2020_10_25_132754) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.text "content"
+    t.string "name", null: false
+    t.string "email", null: false
+    t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2020_10_25_132754) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.text "introduction"
-    t.string "image_id"
+    t.text "introduction", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
