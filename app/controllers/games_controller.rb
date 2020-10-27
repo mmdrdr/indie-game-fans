@@ -19,7 +19,6 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @user = User.find_by(id: @game.user_id)
     @comment = Comment.new
   end
 
@@ -44,7 +43,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:user_id, :title, :introduction, :image)
+    params.require(:game).permit(:user_id, :title, :introduction, :image, label_ids: [])
   end
 
 end

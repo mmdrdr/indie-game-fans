@@ -38,6 +38,12 @@
         <%= f.label :introduction, "せつめい" %>
         <%= f.text_area :introduction, class: "nes-textarea" %>
       </div>
+      <div>
+        <% Genre.all.each do |genre| %>
+        <%= f.check_box :genre_ids, { multiple: true, include_hidden: false }, genre[:id] %>
+          <label class="nes-badge"><span class="is-dark"><%= genre.name %></span></label>
+        <% end %>
+      </div>
     </div>
     <%= f.submit class: "nes-btn is-primary" %>
   <% end %>

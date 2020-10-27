@@ -1,13 +1,17 @@
 <div class="right-all col-8 offset-1">
   <div>
     <h1><%= @game.title %></h1>
+    <% if @game.user == current_user %>
+      <%= link_to "へんしゅう", edit_game_path(@game), class: "nes-btn is-primary" %>
+      <%= link_to "さくじょ", game_path(@game), method: :delete, data: {confirm: "ほんとうに さくじょ してよろしいですか？"}, class: "nes-btn is-error" %>
+    <% end %>
   </div>
   <div>
     <%= attachment_image_tag @game, :image, size: "700x350" %>
   </div>
   <div>
     <%= attachment_image_tag @user, :image, size: "50x50" %>
-    <%= @user.name %>
+    <%= @game.user.name %>
     <% if user_signed_in? %>
       <% if @game.favorited_by?(current_user) %>
         <%= link_to game_favorites_path(@game), method: :delete do %>
@@ -22,7 +26,7 @@
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-        <i class="fa fa-heart" style="color: #cc111b;"></i>
+        <i class="fa fa-heart-o" style="color: #cc111b;"></i>
         <%= @game.favorites.count %>
       <% end %>
     <% end %>

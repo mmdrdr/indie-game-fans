@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_10_25_132754) do
   end
 
   create_table "game_genres", force: :cascade do |t|
-    t.integer "user_id", null: false
     t.integer "game_id", null: false
+    t.integer "genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,16 +1,46 @@
 <div class="right-all col-8 offset-1">
-  <%= form_with model: @game do |f| %>
+  <%= form_with(model: @game, local: true) do |f| %>
     <% if @game.errors.any? %>
       <%= @game.errors.count %>件のエラーが発生しました
       <% @game.errors.full_messages.each do |message| %>
         <%= message %>
       <% end %>
     <% end %>
-    <%= f.attachment_field :image %>
-    <%= f.label :title, "タイトル" %>
-    <%= f.text_field :title %>
-    <%= f.label :introduction, "せつめい" %>
-    <%= f.text_area :introduction %>
+    <%= image_tag "no_image.png", size: "700x350", id: "img_prev" %>
+    <%= f.attachment_field :image, id: "post_post_img" %>
+    <!--JavaScroptの読み込み-->
+    <script type="text/javascript">
+      $(function() {
+        // 関数の宣言 //
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            // FileReaderを読み込んでローカルファイルを操作できるようにする //
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              $('#img_prev').attr('src', e.target.result);
+            }
+            /* ファイルをData URIとして読み込む。Data URI=外部ファイルを直接ウェブページに埋め込む手段。 */
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        // 新しい画像をアップロードした際の処理 //
+        $("#post_post_img").change(function() {
+          readURL(this);
+        });
+      });
+    </script>
+    <div>
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :introduction, "せつめい" %>
+      <%= f.text_area :introduction %>
+    </div>
+    <% Genre.all.each do |genre| %>
+        <%= f.check_box :genre_ids, { multiple: true, checked: @game.genres.find_by(id: genre.id).present?, include_hidden: false }, genre[:id] %>
+        <label class="nes-badge"><span class="is-dark"><%= genre.name %></span></label>
+    <% end %>
     <%= f.submit %>
   <% end %>
 </div>
