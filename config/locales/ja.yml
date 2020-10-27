@@ -1,0 +1,28 @@
+ja:
+  activerecord:
+    models:
+      user:
+      game:
+      contact:
+    attributes:
+      user:
+        image: アイコン
+        name: ユーザーネーム
+        introduction: じこしょうかい
+      game:
+        title: タイトル
+        introduction: せつめい
+        image: がぞう
+      contact:
+        name: おなまえ
+        email: メールアドレス
+        content: ないよう
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+          taken: "はもうつかわれています。"
+          blank: "をいれてください。"
+          too_short: "は%{count}文字以上にしてください。"
+          too_long: "は%{count}文字以下にしてください。"
+          invalid: "は有効でありません。"
+          confirmation: "が内容とあっていません。"

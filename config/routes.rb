@@ -11,4 +11,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   get '/search' => 'search#search'
+  resource :contacts, only: [:new, :create] do
+    get "/thanks" => "contacts#thanks"
+  end
 end

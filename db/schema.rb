@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_082836) do
+ActiveRecord::Schema.define(version: 2020_10_25_132754) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "game_id", null: false
     t.text "comment", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_10_21_082836) do
   end
 
   create_table "game_genres", force: :cascade do |t|
-    t.integer "user_id", null: false
     t.integer "game_id", null: false
+    t.integer "genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,8 +71,8 @@ ActiveRecord::Schema.define(version: 2020_10_21_082836) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.text "introduction"
-    t.string "image_id"
+    t.text "introduction", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

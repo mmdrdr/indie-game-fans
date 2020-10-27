@@ -1,9 +1,9 @@
-<div class="right-all col-9 offset-1">
+<div class="right-all col-8 offset-1">
   <% if @model == "game" %>
-    <h3>"<%= @content %>"でけんさくしたゲーム</h3>
+    <h1>"<%= @content %>"でけんさくしたゲームたち</h1>
     <%= render 'games/index', games: @records %>
   <% else @model == "user" %>
-    <h3>"<%= @content %>"でけんさくしたクリエイター</h3>
+    <h1>"<%= @content %>"でけんさくしたクリエイターたち</h1>
     <%= render 'users/index', users: @records %>
   <% end %>
 </div>

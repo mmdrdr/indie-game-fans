@@ -1,16 +1,16 @@
 <% users.each do |user| %>
   <table class="table">
     <tr>
-      <td>
+      <td class="align-middle">
         <%= attachment_image_tag user, :image, :fill, 150, 100 %>
       </td>
-      <td>
+      <td class="align-middle">
         <%= user.name %>
       </td>
-      <td>
+      <td class="align-middle">
         <%= truncate(user.introduction, :length => 20) %>
       </td>
-      <td>
+      <td class="align-middle">
         <%= link_to "もっと　くわしく", user_path(user), class: "nes-btn is-warning" %>
       </td>
     </tr>
