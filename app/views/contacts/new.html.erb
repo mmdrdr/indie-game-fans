@@ -2,7 +2,6 @@
   <h1>おといあわせ</h1>
   <%= form_with(model: @contact, local: true) do |f| %>
     <% if @contact.errors.any? %>
-      <%= @contact.errors.count %>件のエラーがあります
       <% @contact.errors.full_messages.each do |message| %>
         <div>
           <%= message %>
