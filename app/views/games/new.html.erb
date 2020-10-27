@@ -3,7 +3,9 @@
     <% if @game.errors.any? %>
       <%= @game.errors.count %>件のエラーがあります
       <% @game.errors.full_messages.each do |message| %>
-        <%= message %>
+        <li>
+          <%= message %>
+        </li>
       <% end %>
     <% end %>
     <%= image_tag "no_image.png", size: "700x350", id: "img_prev" %>
