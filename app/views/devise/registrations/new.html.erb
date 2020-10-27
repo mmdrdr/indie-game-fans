@@ -4,12 +4,41 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <h4>アイコンをえらぶ</h4>
-    <%= f.file_field :image %>
+    <div class="field">
+      <%= f.label :image, "アイコン" %><br />
+      <%= image_tag "no_image.png", size: "100x100", id: "img_prev" %>
+      <%= f.attachment_field :image, id: "post_post_img" %>
+      <!--JavaScroptの読み込み-->
+      <script type="text/javascript">
+        $(function() {
+          // 関数の宣言 //
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+              // FileReaderを読み込んでローカルファイルを操作できるようにする //
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                $('#img_prev').attr('src', e.target.result);
+              }
+              /* ファイルをData URIとして読み込む。Data URI=外部ファイルを直接ウェブページに埋め込む手段。 */
+              reader.readAsDataURL(input.files[0]);
+            }
+          }
+          // 新しい画像をアップロードした際の処理 //
+          $("#post_post_img").change(function() {
+            readURL(this);
+          });
+        });
+      </script>
+    </div>
 
     <div class="field">
       <%= f.label :name, "ユーザーネーム" %><br />
       <%= f.text_field :name, autofocus: true, class: "nes-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :introduction, "じこしょうかい" %><br />
+      <%= f.text_area :introduction, rows: "5", class: "nes-textarea", value: "よろしくおねがいします！" %>
     </div>
 
     <div class="field">
@@ -27,10 +56,11 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "nes-input" %>
     </div>
 
-    <div class="actions">
+    <div class="actions mt-3">
       <%= f.submit "とうろく", class: "nes-btn is-primary" %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
+  <div class="mt-3">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>

@@ -16,11 +16,11 @@
     <% end %>
   </div>
   <div>
-    <h4>じこしょうかい</h4>
+    <h4 class="mt-4">じこしょうかい</h4>
     <%= @user.introduction %>
   </div>
-  <div class="table-all">
-    <h4>つくったゲーム</h4>
+  <% if @games.count > 0 %>
+    <h4 class="d-inline-block mt-4">つくったゲーム</h4>
     <% if @user == current_user %>
       <%= link_to "ゲームをついか", new_game_path, class: "nes-btn is-success" %>
     <% end %>
@@ -37,5 +37,28 @@
         </div>
       <% end %>
     </div>
-  </div>
+  <% end %>
+  <% if @users.count > 0 %>
+    <h4 class="mt-4">フォローしているクリエイター</h4>
+    <% @users.each do |user| %>
+      <div class="table-item">
+        <table class="table table-borderless">
+          <tr>
+            <td class="align-middle">
+              <%= attachment_image_tag user, :image, size: "50x50" %>
+            </td>
+            <td class="align-middle">
+              <%= user.name %>
+            </td>
+            <td class="align-middle">
+              <%= truncate(user.introduction, :length => 20) %>
+            </td>
+            <td class="align-middle">
+              <%= link_to "もっと　くわしく", user_path(user), class: "nes-btn is-warning" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  <% end %>
 </div>

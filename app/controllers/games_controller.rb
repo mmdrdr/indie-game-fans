@@ -7,14 +7,14 @@ class GamesController < ApplicationController
   def create
     @game = current_user.games.new(game_params)
     if @game.save
-      redirect_to games_path
+      redirect_to user_path(@game.user)
     else
       render :new
     end
   end
 
   def index
-    @games = Game.all
+    @games = Game.all.order(created_at: :DESC)
   end
 
   def show
