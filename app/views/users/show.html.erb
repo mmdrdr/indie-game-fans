@@ -2,8 +2,10 @@
   <div>
     <%= attachment_image_tag @user, :image, size: "100x100" %>
     <%= @user.name %>
-    <i class="fas fa-user-friends"></i>
-    <%= @user.followed.count %>
+    <%= link_to user_followers_path(@user) do %>
+      <i class="fas fa-user-friends"></i>
+      <%= @user.followed.count %>
+    <% end %>
     <% if @user == current_user %>
       <%= link_to notifications_path do %>
         <i class="fas fa-bell"></i>
