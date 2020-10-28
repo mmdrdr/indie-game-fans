@@ -3,16 +3,15 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    game = Game.find(params[:game_id])
+    @game = Game.find(params[:game_id])
     comment = current_user.comments.new(comment_params)
-    comment.game_id = game.id
+    comment.game_id = @game.id
     comment.save
-    redirect_to game_path(game)
   end
 
   def destroy
+    @game = Game.find(params[:game_id])
     Comment.find_by(id: params[:id], game_id: params[:game_id]).destroy
-    redirect_to game_path(params[:game_id])
   end
 
   private

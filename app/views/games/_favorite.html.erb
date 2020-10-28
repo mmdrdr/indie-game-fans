@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+  <% if game.favorited_by?(current_user) %>
+    <%= link_to game_favorites_path(game), method: :delete, remote: true do %>
+      <i class="fa fa-heart" aria-hidden="true" style="color: #cc111b;"></i>
+      <%= game.favorites.count %>
+    <% end %>
+  <% else %>
+    <%= link_to game_favorites_path(game), method: :post, remote: true do %>
+      <i class="fa fa-heart-o" aria-hidden="true"></i>
+      <%= game.favorites.count %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to new_user_session_path do %>
+    <i class="fa fa-heart-o" style="color: #cc111b;"></i>
+    <%= game.favorites.count %>
+  <% end %>
+<% end %>
