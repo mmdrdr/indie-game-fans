@@ -78,3 +78,9 @@ end
 
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
+gem 'recaptcha', require: "recaptcha/rails"

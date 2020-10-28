@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   has_many :games, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -18,9 +18,8 @@ class User < ApplicationRecord
 
   attachment :image
 
-  validates :name, presence: true, length: { maximum: 20 }
-  validates :introduction, presence: true
-  validates :image, presence: true
+  validates :name, length: { maximum: 20 }
+  validates :introduction, length: { maximum: 300 }
 
   def follow(user_id)
     follower.create(followed_id: user_id)
@@ -41,6 +40,20 @@ class User < ApplicationRecord
       notification = current_user.active_notifications.new(visited_id: id)
       notification.save if notification.valid?
     end
+  end
+
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+
+    unless user
+      user = User.create!(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    auth.info.email,
+        password: Devise.friendly_token[0, 20]
+      )
+    end
+    user
   end
 
 end
