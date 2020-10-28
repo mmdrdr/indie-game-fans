@@ -23,6 +23,8 @@ body{
 .header{
   height: 100vh;
   border-right: 3px solid #212529;
+  position: sticky;
+  top: 0;
 }
 
 .header a{
