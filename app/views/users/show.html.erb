@@ -5,6 +5,9 @@
     <i class="fas fa-user-friends"></i>
     <%= @user.followed.count %>
     <% if @user == current_user %>
+      <%= link_to notifications_path do %>
+        <i class="fas fa-bell"></i>
+      <% end %>
       <%= link_to "へんしゅう", edit_user_path(@user), class: "nes-btn is-primary" %>
       <%= link_to "たいかい", user_path(@user), method: :delete, data: {confirm: "ほんとうに たいかい してよろしいですか？"}, class: "nes-btn is-error" %>
     <% else %>
