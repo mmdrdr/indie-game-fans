@@ -1,47 +1,67 @@
-<div class="right-all col-9 offset-1">
+<div class="right-all col-8 offset-1">
   <div>
     <%= attachment_image_tag @user, :image, size: "100x100" %>
     <%= @user.name %>
+    <%= link_to user_followers_path(@user) do %>
+      <i class="fas fa-user-friends"></i>
+      <%= @user.followed.count %>
+    <% end %>
     <% if @user == current_user %>
+      <%= link_to notifications_path do %>
+        <i class="fas fa-bell"></i>
+      <% end %>
       <%= link_to "へんしゅう", edit_user_path(@user), class: "nes-btn is-primary" %>
       <%= link_to "たいかい", user_path(@user), method: :delete, data: {confirm: "ほんとうに たいかい してよろしいですか？"}, class: "nes-btn is-error" %>
     <% else %>
-      <% if user_signed_in? %>
-        <% if current_user.following?(@user) %>
-          <%= link_to "フォローしてます", user_relationships_path(@user.id), method: :delete, class: "nes-btn is-success" %>
-        <% else %>
-          <%= link_to "フォローする", user_relationships_path(@user.id), method: :POST, class: "nes-btn is-primary" %>
-        <% end %>
-      <% end %>
+      <div id="follow_<%= @user.id %>" class="d-inline-block">
+        <%= render 'follow', user: @user %>
+      </div>
     <% end %>
   </div>
   <div>
+    <h4 class="mt-4">じこしょうかい</h4>
     <%= @user.introduction %>
   </div>
-  <div>
-    <h4>つくったゲーム</h4>
+  <% if @games.count > 0 %>
+    <h4 class="d-inline-block mt-4">つくったゲーム</h4>
     <% if @user == current_user %>
       <%= link_to "ゲームをついか", new_game_path, class: "nes-btn is-success" %>
     <% end %>
-    <% @games.each do |game| %>
-      <div class="game_table">
-        <table class="table">
+    <div class="d-flex flex-wrap">
+      <% @games.each do |game| %>
+        <div class="table-item text-center">
+          <%= attachment_image_tag game, :image, size: "160x90" %>
+          <p>
+            <%= truncate(game.title, length: 10) %>
+          </p>
+          <p>
+            <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <% if @users.count > 0 %>
+    <h4 class="mt-4">フォローしているクリエイター</h4>
+    <% @users.each do |user| %>
+      <div class="table-item">
+        <table class="table table-borderless">
           <tr>
-            <td>
-              <%= attachment_image_tag game, :image, :fill, 150, 100 %>
+            <td class="align-middle">
+              <%= attachment_image_tag user, :image, size: "50x50" %>
             </td>
-            <td>
-              <%= game.title %>
+            <td class="align-middle">
+              <%= user.name %>
             </td>
-            <td>
-              <%= game.introduction.truncate(20) %>
+            <td class="align-middle">
+              <%= truncate(user.introduction, :length => 20) %>
             </td>
-            <td>
-              <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
+            <td class="align-middle">
+              <%= link_to "もっと　くわしく", user_path(user), class: "nes-btn is-warning" %>
             </td>
           </tr>
         </table>
       </div>
     <% end %>
-  </div>
+  <% end %>
 </div>

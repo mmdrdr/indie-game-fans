@@ -6,6 +6,27 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Game.create!(
+  user_id: 1,
+  title: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  image: open("./app/assets/images/aircraft.jpg")
+)
+
+Game.create!(
+  user_id: 2,
+  title: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  image: open("./app/assets/images/aircraft.jpg")
+)
+
+Game.create!(
+  user_id: 3,
+  title: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  image: open("./app/assets/images/aircraft.jpg")
+)
+
 Genre.create!(
   [
     {name: "アクション"},
@@ -16,6 +37,21 @@ Genre.create!(
     {name: "スポーツ"},
     {name: "ミュージック"}
   ]
+)
+
+GameGenre.create!(
+  game_id: 1,
+  genre_id: 1
+)
+
+GameGenre.create!(
+  game_id: 2,
+  genre_id: 2
+)
+
+GameGenre.create!(
+  game_id: 3,
+  genre_id: 3
 )
 
 User.create!(
@@ -40,27 +76,6 @@ User.create!(
   email: "test3@test",
   password: 333333,
   image: open("./app/assets/images/no_image.png")
-)
-
-Game.create!(
-  user_id: 1,
-  title: "test",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-  image: open("./app/assets/images/aircraft.jpg")
-)
-
-Game.create!(
-  user_id: 2,
-  title: "test",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-  image: open("./app/assets/images/aircraft.jpg")
-)
-
-Game.create!(
-  user_id: 3,
-  title: "test",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-  image: open("./app/assets/images/aircraft.jpg")
 )
 
 Comment.create!(

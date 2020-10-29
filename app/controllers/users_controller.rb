@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :DESC)
   end
 
   def show
     @user = User.find(params[:id])
-    @games = Game.where(user_id: @user.id)
+    @users = @user.following_user
+    @games = Game.where(user_id: @user.id).order(created_at: :DESC)
   end
 
   def edit
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :introduction, :image_id)
+    params.require(:user).permit(:name, :introduction, :image)
   end
 
 end

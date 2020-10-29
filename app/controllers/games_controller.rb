@@ -7,19 +7,22 @@ class GamesController < ApplicationController
   def create
     @game = current_user.games.new(game_params)
     if @game.save
-      redirect_to games_path
+      redirect_to user_path(@game.user)
     else
       render :new
     end
   end
 
   def index
-    @games = Game.all
+    if params[:id]
+      @games = Genre.find(params[:id]).games
+    else
+      @games = Game.all.order(created_at: :DESC)
+    end
   end
 
   def show
     @game = Game.find(params[:id])
-    @user = User.find_by(id: @game.user_id)
     @comment = Comment.new
   end
 
@@ -44,7 +47,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:user_id, :title, :introduction, :image)
+    params.require(:game).permit(:user_id, :title, :introduction, :image, genre_ids: [])
   end
 
 end

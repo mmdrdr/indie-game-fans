@@ -1,18 +1,13 @@
-<% games.each do |game| %>
-  <table class="table">
-    <tr>
-      <td>
-        <%= attachment_image_tag game, :image, :fill, 150, 100 %>
-      </td>
-      <td>
-        <%= game.title %>
-      </td>
-      <td>
-        <%= truncate(game.introduction, :length => 20) %>
-      </td>
-      <td>
+<div class="d-flex flex-wrap">
+  <% games.each do |game| %>
+    <div class="table-item text-center">
+      <%= attachment_image_tag game, :image, size: "160x90" %>
+      <p>
+        <%= truncate(game.title, length: 10) %>
+      </p>
+      <p>  
         <%= link_to "もっと　くわしく", game_path(game), class: "nes-btn is-warning" %>
-      </td>
-    </tr>
-  </table>
-<% end %>
+      </p>
+    </div>
+  <% end %>
+</div>

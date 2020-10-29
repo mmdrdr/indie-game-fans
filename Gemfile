@@ -75,3 +75,14 @@ gem 'dotenv-rails'
 group :production do
 gem 'mysql2'
 end
+
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
+gem 'recaptcha', require: "recaptcha/rails"
+
+gem 'pry-rails'

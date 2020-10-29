@@ -15,36 +15,73 @@
  */
 @import "bootstrap";
 
-html,body{
+*{
+  box-sizing:border-box;
   padding: 0;
   margin: 0;
-  height: 100%;
 }
 
 body{
   background-color: #ffcf10;
-  font-family: "Chango", "Nico Moji";
+  font-family: "Chango", "Nico Moji", "Kosugi Maru";
 }
 
 .header{
   height: 100vh;
-  border-right: 3px solid #000;
-  text-align: right;
+  border-right: 3px solid #212529;
+  position: sticky;
+  top: 0;
+}
+
+.header a{
+  color: #212529;
+}
+
+.header li{
+  font-size: 2rem;
+  padding-right: 10px;
+  list-style: none;
+  padding-top: 22%;
 }
 
 .right-all{
-  margin-top: 65px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-h1{
+.top{
   font-size: 10em;
 }
 
-li{
-  list-style: none;
-  padding-top: 80px;
+.table-item{
+  margin-right: 20px;
+  margin-top: 20px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .5);
 }
 
 .nes-input{
   width: 300px;
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #212529;
+    color: #ffcf10;
+  }
+
+  .header{
+    border-right: 3px solid #ffcf10;
+  }
+
+  .header a{
+    color: #212529;
+  }
+}
+*/
+
+@media screen and (max-width:425px) {
+  .top{
+    font-size: 2em;
+  }
 }
