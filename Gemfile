@@ -84,3 +84,5 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
 gem 'recaptcha', require: "recaptcha/rails"
+
+gem 'pry-rails'
