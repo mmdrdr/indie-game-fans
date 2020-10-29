@@ -9,7 +9,8 @@
 Game.create!(
   user_id: 1,
   title: "ブロック崩し",
-  introduction: "JavaScriptの勉強でブロック崩しを作ってみました。キーボードの左右で操作できます。開始直後にすぐ右下に移動するので気をつけてください。",
+  introduction: "JavaScriptの勉強でブロック崩しを作ってみました。キーボードの左右で操作できます。開始直後にすぐ右下に移動するので気をつけてください。
+  https://github.com/mmdrdr/block_break",
   image: open("./app/assets/images/block_break.png")
 )
 
@@ -82,6 +83,14 @@ User.create!(
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   email: "test3@test",
   password: 333333,
+  image: open("./app/assets/images/no_image.png")
+)
+
+User.create!(
+  name: "user4",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  email: "test4@test",
+  password: 444444,
   image: open("./app/assets/images/no_image.png")
 )
 
