@@ -8,9 +8,9 @@
 
 Game.create!(
   user_id: 1,
-  title: "test",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-  image: open("./app/assets/images/aircraft.jpg")
+  title: "ブロック崩し",
+  introduction: "JavaScriptの勉強でブロック崩しを作ってみました。キーボードの左右で操作できます。開始直後にすぐ右下に移動するので気をつけてください。",
+  image: open("./app/assets/images/block_break.png")
 )
 
 Game.create!(
@@ -22,6 +22,13 @@ Game.create!(
 
 Game.create!(
   user_id: 3,
+  title: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  image: open("./app/assets/images/aircraft.jpg")
+)
+
+Game.create!(
+  user_id: 4,
   title: "test",
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   image: open("./app/assets/images/aircraft.jpg")
@@ -55,8 +62,8 @@ GameGenre.create!(
 )
 
 User.create!(
-  name: "user1",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  name: "test",
+  introduction: "ゆくゆくはゲームも作りたいと思っています。",
   email: "test@test",
   password: 111111,
   image: open("./app/assets/images/no_image.png")
