@@ -1,0 +1,29 @@
+<div class="right-all col-8 offset-1">
+  <h1>おしらせ</h1>
+  <% if @notifications.exists? %>
+    <% @notifications.each do |notification| %>
+      <div class="table-item">
+        <table class="table table-borderless">
+          <tr>
+            <td class="align-middle">
+              <%= attachment_image_tag notification.visitor, :image, size: "50x50" %>
+            </td>
+            <td class="align-middle">
+              <%= link_to user_path(notification.visitor) do %>
+                <%= notification.visitor.name %>
+              <% end %>
+            </td>
+            <td class="align-middle">
+              からフォローされました。
+            </td>
+            <td class="align-middle">
+              <%= " (#{time_ago_in_words(notification.created_at)}まえ)" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  <% else %>
+    <p>おしらせはありません</p>
+  <% end %>
+</div>

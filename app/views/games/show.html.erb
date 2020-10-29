@@ -9,46 +9,28 @@
       <%= link_to "さくじょ", game_path(@game), method: :delete, data: {confirm: "#{@game.title}をさくじょしてよろしいですか？"}, class: "nes-btn is-error" %>
     <% end %>
   </div>
-  <div>
-    <% if user_signed_in? %>
-      <% if @game.favorited_by?(current_user) %>
-        <%= link_to game_favorites_path(@game), method: :delete do %>
-          <i class="fa fa-heart" aria-hidden="true" style="color: #cc111b;"></i>
-          <%= @game.favorites.count %>
-        <% end %>
-      <% else %>
-        <%= link_to game_favorites_path(@game), method: :post do %>
-          <i class="fa fa-heart-o" aria-hidden="true"></i>
-          <%= @game.favorites.count %>
-        <% end %>
-      <% end %>
-    <% else %>
-      <%= link_to new_user_session_path do %>
-        <i class="fa fa-heart-o" style="color: #cc111b;"></i>
-        <%= @game.favorites.count %>
-      <% end %>
-    <% end %>
+  <div id="favorite_button_<%= @game.id %>">
+    <%= render 'favorite', game: @game %>
   </div>
   <h4 class="mt-4 mb-3">ゲームのせつめい</h4>
   <p class="text-break"><%= @game.introduction %></p>
+  <h4 class="mt-4 mb-3">ジャンル</h4>
+  <% @game.genres.each do |genre| %>
+    <label class="nes-badge">
+      <span class="is-dark">
+        <%= link_to genre.name, games_path(id: genre.id) %>
+      </span>
+    </label>
+  <% end %>
   <h4 class="mt-4 mb-3">クリエイター</h4>
   <%= attachment_image_tag @game.user, :image, size: "50x50" %>
   <%= link_to user_path(@game.user) do %>
     <%= @game.user.name %>
   <% end %>
   <h4 class="mt-4 mb-3">みんなのコメント</h4>
-  <% @game.comments.each do |comment| %>
-    <div class="mt-4">
-      <%= attachment_image_tag comment.user, :image, size: "50x50", placeholder: 'no_image.png' %>
-      <%= link_to user_path(comment.user) do %>
-        <%= comment.user.name %>
-      <% end %>
-      <% if comment.user == current_user %>
-        <%= link_to "さくじょ", game_comment_path(comment.game, comment), method: :delete, data: {confirm: "このコメントをさくじょしてよろしいですか？"}, class: "nes-btn is-error" %>
-      <% end %>
-      <%= comment.comment %>
-    </div>
-  <% end %>
+  <div id="comment_<%= @game.id %>">
+    <%= render 'comment', game: @game %>
+  </div>
   <div>
     <h4 class="mt-4">コメントする</h4>
     <%= form_with(model:[@game, @comment]) do |f| %>
@@ -56,7 +38,7 @@
       <% if user_signed_in? %>
         <%= f.submit "とうこう", class: "nes-btn is-primary" %>
       <% else %>
-        <%= link_to "とうこう", new_user_session_path, class: "nes-btn is-primary" %>
+        <%= link_to "とうこう", new_user_session_path, class: "nes-btn is-primary", remote: true %>
       <% end %>
     <% end %>
   </div>

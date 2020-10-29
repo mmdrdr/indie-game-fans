@@ -2,17 +2,20 @@
   <div>
     <%= attachment_image_tag @user, :image, size: "100x100" %>
     <%= @user.name %>
+    <%= link_to user_followers_path(@user) do %>
+      <i class="fas fa-user-friends"></i>
+      <%= @user.followed.count %>
+    <% end %>
     <% if @user == current_user %>
+      <%= link_to notifications_path do %>
+        <i class="fas fa-bell"></i>
+      <% end %>
       <%= link_to "へんしゅう", edit_user_path(@user), class: "nes-btn is-primary" %>
       <%= link_to "たいかい", user_path(@user), method: :delete, data: {confirm: "ほんとうに たいかい してよろしいですか？"}, class: "nes-btn is-error" %>
     <% else %>
-      <% if user_signed_in? %>
-        <% if current_user.following?(@user) %>
-          <%= link_to "フォローしてます", user_relationships_path(@user.id), method: :delete, class: "nes-btn is-success" %>
-        <% else %>
-          <%= link_to "フォローする", user_relationships_path(@user.id), method: :POST, class: "nes-btn is-primary" %>
-        <% end %>
-      <% end %>
+      <div id="follow_<%= @user.id %>" class="d-inline-block">
+        <%= render 'follow', user: @user %>
+      </div>
     <% end %>
   </div>
   <div>

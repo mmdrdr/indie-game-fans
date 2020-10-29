@@ -1,0 +1,25 @@
+<div class="right-all col-8 offset-1">
+  <div class="table-all">
+    <h1 class="mt-4"><%= @user.name %>のフォロワーたち</h1>
+    <% @users.each do |user| %>
+      <div class="table-item">
+        <table class="table table-borderless">
+          <tr>
+            <td class="align-middle">
+              <%= attachment_image_tag user, :image, size: "50x50" %>
+            </td>
+            <td class="align-middle">
+              <%= user.name %>
+            </td>
+            <td class="align-middle">
+              <%= truncate(user.introduction, :length => 20) %>
+            </td>
+            <td class="align-middle">
+              <%= link_to "もっと　くわしく", user_path(user), class: "nes-btn is-warning" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks' 
+  }
   root 'homes#top'
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     resource :relationships, only: [:create, :destroy]
@@ -14,4 +17,5 @@ Rails.application.routes.draw do
   resource :contacts, only: [:new, :create] do
     get "/thanks" => "contacts#thanks"
   end
+  resources :notifications, only: [:index]
 end

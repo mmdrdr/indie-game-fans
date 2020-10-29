@@ -15,6 +15,12 @@
  */
 @import "bootstrap";
 
+*{
+  box-sizing:border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body{
   background-color: #ffcf10;
   font-family: "Chango", "Nico Moji", "Kosugi Maru";
@@ -23,6 +29,8 @@ body{
 .header{
   height: 100vh;
   border-right: 3px solid #212529;
+  position: sticky;
+  top: 0;
 }
 
 .header a{
@@ -33,7 +41,7 @@ body{
   font-size: 2rem;
   padding-right: 10px;
   list-style: none;
-  padding-top: 27%;
+  padding-top: 22%;
 }
 
 .right-all{
@@ -71,3 +79,9 @@ body{
   }
 }
 */
+
+@media screen and (max-width:425px) {
+  .top{
+    font-size: 2em;
+  }
+}
