@@ -14,6 +14,14 @@
   </div>
   <h4 class="mt-4 mb-3">ゲームのせつめい</h4>
   <p class="text-break"><%= @game.introduction %></p>
+  <h4 class="mt-4 mb-3">ジャンル</h4>
+  <% @game.genres.each do |genre| %>
+    <label class="nes-badge">
+      <span class="is-dark">
+        <%= genre.name %>
+      </span>
+    </label>
+  <% end %>
   <h4 class="mt-4 mb-3">クリエイター</h4>
   <%= attachment_image_tag @game.user, :image, size: "50x50" %>
   <%= link_to user_path(@game.user) do %>
