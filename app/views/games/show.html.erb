@@ -18,7 +18,7 @@
   <% @game.genres.each do |genre| %>
     <label class="nes-badge">
       <span class="is-dark">
-        <%= genre.name %>
+        <%= link_to genre.name, games_path(id: genre.id) %>
       </span>
     </label>
   <% end %>

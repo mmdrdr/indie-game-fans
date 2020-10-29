@@ -14,7 +14,11 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all.order(created_at: :DESC)
+    if params[:id]
+      @games = Genre.find(params[:id]).games
+    else
+      @games = Game.all.order(created_at: :DESC)
+    end
   end
 
   def show
@@ -43,7 +47,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:user_id, :title, :introduction, :image, label_ids: [])
+    params.require(:game).permit(:user_id, :title, :introduction, :image, genre_ids: [])
   end
 
 end
