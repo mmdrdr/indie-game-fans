@@ -11,7 +11,11 @@ class Game < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  validates_associated :game_images
+  validates_associated :game_genres
   validates :title, presence: true
   validates :introduction, presence: true
+  validates :game_images, presence: true
+  validates :game_genres, presence: true
 
 end
