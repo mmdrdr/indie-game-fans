@@ -9,7 +9,7 @@
       <% end %>
     <% end %>
     <%= image_tag "no_image.png", size: "700x350", id: "img_prev" %>
-    <%= f.attachment_field :image, id: "post_post_img" %>
+    <%= f.attachment_field :game_images_images, multiple: true, id: "post_post_img" %>
     <!--JavaScroptの読み込み-->
     <script type="text/javascript">
       $(function() {

@@ -6,62 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Game.create!(
-  user_id: 1,
-  title: "ブロック崩し",
-  introduction: "JavaScriptの勉強でブロック崩しを作ってみました。キーボードの左右で操作できます。開始直後にすぐ右下に移動するので気をつけてください。
-  https://github.com/mmdrdr/block_break",
-  image: open("./app/assets/images/block_break.png")
-)
-
-Game.create!(
-  user_id: 2,
-  title: "test",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-  image: open("./app/assets/images/aircraft.jpg")
-)
-
-Game.create!(
-  user_id: 3,
-  title: "test",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-  image: open("./app/assets/images/aircraft.jpg")
-)
-
-Game.create!(
-  user_id: 4,
-  title: "test",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-  image: open("./app/assets/images/aircraft.jpg")
-)
-
-Genre.create!(
-  [
-    {name: "アクション"},
-    {name: "アドベンチャー"},
-    {name: "RPG"},
-    {name: "パズル"},
-    {name: "レース"},
-    {name: "スポーツ"},
-    {name: "ミュージック"}
-  ]
-)
-
-GameGenre.create!(
-  game_id: 1,
-  genre_id: 1
-)
-
-GameGenre.create!(
-  game_id: 2,
-  genre_id: 2
-)
-
-GameGenre.create!(
-  game_id: 3,
-  genre_id: 3
-)
-
 User.create!(
   name: "test",
   introduction: "ゆくゆくはゲームも作りたいと思っています。",
@@ -92,6 +36,68 @@ User.create!(
   email: "test4@test",
   password: 444444,
   image: open("./app/assets/images/no_image.png")
+)
+
+Game.create!(
+  user_id: 1,
+  title: "ブロック崩し",
+  introduction: "JavaScriptの勉強でブロック崩しを作ってみました。キーボードの左右で操作できます。開始直後にすぐ右下に移動するので気をつけてください。
+  https://github.com/mmdrdr/block_break"
+)
+
+GameImage.create!(
+  game_id: 1,
+  image: open("./app/assets/images/block_break.png")
+)
+
+Game.create!(
+  user_id: 2,
+  title: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+)
+
+GameImage.create!(
+  game_id: 2,
+  image: open("./app/assets/images/aircraft.jpg")
+)
+
+Game.create!(
+  user_id: 3,
+  title: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+)
+
+Game.create!(
+  user_id: 4,
+  title: "test",
+  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+)
+
+Genre.create!(
+  [
+    {name: "アクション"},
+    {name: "アドベンチャー"},
+    {name: "RPG"},
+    {name: "パズル"},
+    {name: "レース"},
+    {name: "スポーツ"},
+    {name: "ミュージック"}
+  ]
+)
+
+GameGenre.create!(
+  game_id: 1,
+  genre_id: 1
+)
+
+GameGenre.create!(
+  game_id: 2,
+  genre_id: 2
+)
+
+GameGenre.create!(
+  game_id: 3,
+  genre_id: 3
 )
 
 Comment.create!(

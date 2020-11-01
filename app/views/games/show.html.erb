@@ -1,7 +1,9 @@
 <div class="right-all col-8 offset-1">
   <h1><%= @game.title %></h1>
   <div>
-    <%= attachment_image_tag @game, :image, size: "704x396" %>
+    <% @game.game_images.each do |image| %>
+      <%= attachment_image_tag image, :image, size: "704x396" %>
+    <% end %>
   </div>
   <div class="float-right">
     <% if @game.user == current_user %>
