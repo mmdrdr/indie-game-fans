@@ -12,10 +12,10 @@ class Game < ApplicationRecord
   end
 
   validates_associated :game_images
-  validates_associated :game_genres
+  validates_associated :genres
   validates :game_images, presence: true
   validates :title, presence: true
   validates :introduction, presence: true
-  validates :game_genres, presence: true
+  validates :genres, presence: true
 
 end
