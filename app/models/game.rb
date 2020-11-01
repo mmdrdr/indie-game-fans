@@ -13,9 +13,9 @@ class Game < ApplicationRecord
 
   validates_associated :game_images
   validates_associated :game_genres
+  validates :game_images, presence: true
   validates :title, presence: true
   validates :introduction, presence: true
-  validates :game_images, presence: true
   validates :game_genres, presence: true
 
 end
