@@ -8,7 +8,7 @@ ja:
           game_images: がぞう
           title: タイトル
           introduction: せつめい
-          game_genres: ジャンル
+          genres: ジャンル
         contact:
           name: おなまえ
           email: メールアドレス
