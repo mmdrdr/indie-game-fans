@@ -6,15 +6,15 @@
   </h1>
   <button class="nes-btn is-warning d-none d-md-block" id="about-btn">つかいかた</button>
   <h1 id="about">つかいかた</h1>
-  <script type="text/javascript">
-  var position = $("#about").offset().top;
-  $("#about-btn").click(function(){
-      $("html,body").animate({
-          scrollTop : position
-      }, {
-          queue : false
-      });
-  });
+  <script>
+    var position = $("#about").offset().top;
+    $("#about-btn").click(function(){
+        $("html,body").animate({
+            scrollTop : position
+        }, {
+            queue : false
+        });
+    });
   </script>
   <p>
     INDIE GAME FANSはインディーゲームクリエイターとインディーゲームファンをつなぎます<br>

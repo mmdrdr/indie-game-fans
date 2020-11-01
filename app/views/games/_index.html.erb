@@ -1,7 +1,7 @@
 <div class="d-flex flex-wrap">
   <% games.each do |game| %>
     <div class="table-item text-center">
-      <%= attachment_image_tag game, :image, size: "160x90" %>
+      <%= attachment_image_tag game.game_images[0], :image, size: "160x90" %>
       <p>
         <%= truncate(game.title, length: 10) %>
       </p>
