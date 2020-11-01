@@ -1,5 +1,18 @@
 ja:
   activerecord:
+    models:
+      game: ゲーム
+      contact: お問い合わせ
+    attributes:
+        game:
+          game_images: がぞう
+          title: タイトル
+          introduction: せつめい
+          game_genres: ジャンル
+        contact:
+          name: おなまえ
+          email: メールアドレス
+          content: ないよう
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
