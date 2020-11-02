@@ -17,8 +17,10 @@ class GamesController < ApplicationController
   def index
     if params[:id]
       @games = Genre.find(params[:id]).games
+      @genres = Genre.all
     else
       @games = Game.all.order(created_at: :DESC)
+      @genres = Genre.all
     end
   end
 

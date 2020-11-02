@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(
+
+# ユーザー1
+User.create(
   name: "test",
   introduction: "ゆくゆくはゲームも作りたいと思っています。",
   email: "test@test",
@@ -14,7 +16,8 @@ User.create!(
   image: open("./app/assets/images/no_image.png")
 )
 
-User.create!(
+# ユーザー2
+User.create(
   name: "user2",
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   email: "test2@test",
@@ -22,7 +25,8 @@ User.create!(
   image: open("./app/assets/images/no_image.png")
 )
 
-User.create!(
+# ユーザー3
+User.create(
   name: "user3",
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   email: "test3@test",
@@ -30,7 +34,8 @@ User.create!(
   image: open("./app/assets/images/no_image.png")
 )
 
-User.create!(
+# ユーザー4
+User.create(
   name: "user4",
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   email: "test4@test",
@@ -38,42 +43,63 @@ User.create!(
   image: open("./app/assets/images/no_image.png")
 )
 
-Game.create!(
+# ゲーム1
+Game.create(
   user_id: 1,
   title: "ブロック崩し",
   introduction: "JavaScriptの勉強でブロック崩しを作ってみました。キーボードの左右で操作できます。開始直後にすぐ右下に移動するので気をつけてください。
   https://github.com/mmdrdr/block_break"
 )
 
-GameImage.create!(
-  game_id: 1,
-  image: open("./app/assets/images/block_break.png")
-)
-
-Game.create!(
+# ゲーム2
+Game.create(
   user_id: 2,
-  title: "test",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+  title: "なんとかひきとめろ！",
+  introduction: "あなたは、もうフラレそう...。 望みは少ないけれど、あなたのタイピング力で、なんとか言葉巧みにひきとめろ！https://github.com/mmdrdr/typing"
 )
 
-GameImage.create!(
-  game_id: 2,
-  image: open("./app/assets/images/aircraft.jpg")
-)
-
-Game.create!(
+# ゲーム3
+Game.create(
   user_id: 3,
   title: "test",
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest"
 )
 
-Game.create!(
+# ゲーム4
+Game.create(
   user_id: 4,
   title: "test",
   introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest"
 )
 
-Genre.create!(
+# ゲーム画像1
+GameImage.create(
+  game_id: 1,
+  image: open("./app/assets/images/block_break.png")
+)
+
+# ゲーム画像2
+2.times do |n|
+  GameImage.create(
+    game_id: 2,
+    image: open("./app/assets/images/keep#{n + 1}.png")
+  )
+end
+
+# ゲーム画像3
+GameImage.create(
+  game_id: 3,
+  image: open("./app/assets/images/aircraft.jpg")
+)
+
+# ゲーム画像4
+GameImage.create(
+  game_id: 4,
+  image: open("./app/assets/images/aircraft.jpg")
+)
+
+# ジャンル
+Genre.create(
   [
     {name: "アクション"},
     {name: "アドベンチャー"},
@@ -85,52 +111,61 @@ Genre.create!(
   ]
 )
 
-GameGenre.create!(
+# ゲームジャンル1
+GameGenre.create(
   game_id: 1,
   genre_id: 1
 )
 
-GameGenre.create!(
+# ゲームジャンル2
+GameGenre.create(
   game_id: 2,
-  genre_id: 2
+  genre_id: 1
 )
 
-GameGenre.create!(
+# ゲームジャンル3
+GameGenre.create(
   game_id: 3,
   genre_id: 3
 )
 
-Comment.create!(
-  user_id: 1,
-  game_id: 1,
-  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+# ゲームジャンル4
+GameGenre.create(
+  game_id: 4,
+  genre_id: 4
 )
 
-Comment.create!(
+Comment.create(
+  user_id: 2,
+  game_id: 1,
+  comment: "シンプルでわかりやすくてよかったです。ただ、シンプルすぎてちょっとものたりないかも。",
+)
+
+Comment.create(
   user_id: 2,
   game_id: 1,
   comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
 )
 
-Comment.create!(
+Comment.create(
   user_id: 3,
   game_id: 1,
   comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
 )
 
-Comment.create!(
+Comment.create(
   user_id: 1,
   game_id: 2,
   comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
 )
 
-Comment.create!(
+Comment.create(
   user_id: 2,
   game_id: 2,
   comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
 )
 
-Comment.create!(
+Comment.create(
   user_id: 3,
   game_id: 2,
   comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",

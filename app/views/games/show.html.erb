@@ -3,7 +3,7 @@
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <div id="slider">
     <% @game.game_images.each do |image| %>
-      <%= attachment_image_tag image, :image, size: "704x396" %>
+      <%= attachment_image_tag image, :image, size: "500x250" %>
     <% end %>
   </div>
   <div class="float-right">
@@ -17,14 +17,16 @@
   </div>
   <h4 class="mt-4 mb-3">ゲームのせつめい</h4>
   <p class="text-break"><%= @game.introduction %></p>
-  <h4 class="mt-4 mb-3">ジャンル</h4>
-  <% @game.genres.each do |genre| %>
-    <label class="nes-badge">
-      <span class="is-dark">
-        <%= link_to genre.name, games_path(id: genre.id) %>
-      </span>
-    </label>
-  <% end %>
+  <div class="genre_badge">
+    <h4 class="mt-4 mb-3">ジャンル</h4>
+    <% @game.genres.each do |genre| %>
+      <label class="nes-badge">
+        <span class="is-dark">
+          <%= link_to genre.name, games_path(id: genre.id) %>
+        </span>
+      </label>
+    <% end %>
+  </div>
   <h4 class="mt-4 mb-3">クリエイター</h4>
   <%= attachment_image_tag @game.user, :image, size: "50x50" %>
   <%= link_to user_path(@game.user) do %>

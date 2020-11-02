@@ -1,12 +1,16 @@
-<% game.comments.each do |comment| %>
-  <div class="mt-4">
-    <%= attachment_image_tag comment.user, :image, size: "50x50", placeholder: 'no_image.png' %>
-    <%= link_to user_path(comment.user) do %>
-      <%= comment.user.name %>
-    <% end %>
-    <p class="text-break"><%= comment.comment %></p>
-    <% if comment.user == current_user %>
-      <%= link_to "さくじょ", game_comment_path(comment.game, comment), method: :delete, remote: true, data: {confirm: "このコメントをさくじょしてよろしいですか？"}, class: "nes-btn is-error" %>
-    <% end %>
-  </div>
+<% if game.comments.exists? %>
+  <% game.comments.each do |comment| %>
+    <div class="mt-4">
+      <%= attachment_image_tag comment.user, :image, size: "50x50", placeholder: 'no_image.png' %>
+      <%= link_to user_path(comment.user) do %>
+        <%= comment.user.name %>
+      <% end %>
+      <% if comment.user == current_user %>
+        <%= link_to "さくじょ", game_comment_path(comment.game, comment), method: :delete, remote: true, data: {confirm: "このコメントをさくじょしてよろしいですか？"}, class: "nes-btn is-error" %>
+      <% end %>
+      <p class="text-break"><%= comment.comment %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>まだコメントはありません</p>
 <% end %>
