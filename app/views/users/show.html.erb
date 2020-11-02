@@ -10,6 +10,7 @@
       <%= link_to notifications_path do %>
         <i class="fas fa-bell"></i>
       <% end %>
+      <%= link_to "ゲームをついかする", new_game_path %>
       <%= link_to "へんしゅう", edit_user_path(@user) %>
       <%= link_to "たいかい", user_path(@user), method: :delete, data: {confirm: "ほんとうに たいかい してよろしいですか？"} %>
     <% else %>
@@ -24,9 +25,6 @@
   </div>
   <% if @games.count > 0 %>
     <h4 class="d-inline-block mt-5">つくったゲーム</h4>
-    <% if @user == current_user %>
-      <%= link_to "ゲームをついかする", new_game_path %>
-    <% end %>
     <div class="d-flex flex-wrap">
       <% @games.each do |game| %>
         <div class="table-item text-center">
