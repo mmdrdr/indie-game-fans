@@ -46,8 +46,10 @@ https://docs.google.com/spreadsheets/d/1KU05wv0bjrHyg0AT17tM8X1nJcjr2Nd2-wYLji7q
 - JSライブラリ：jQuery
 - 仮想環境：Vagrant,VirtualBox
 
-## 使用素材（予定）
-- O-DAN https://o-dan.net/ja/
+## 使用素材
+- 写真AC https://www.photo-ac.com/
+- PAKUTASO https://www.pakutaso.com/
+- pixaboy https://pixabay.com/ja/
 - Google Fonts https://fonts.google.com/
 - NES.css https://nostalgic-css.github.io/NES.css/
 - Font Awesome https://fontawesome.com/

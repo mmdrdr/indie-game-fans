@@ -9,20 +9,20 @@
 
 # ユーザー1
 User.create(
-  name: "test",
-  introduction: "ゆくゆくはゲームも作りたいと思っています。",
+  name: "中年うさぎ",
+  introduction: "趣味でゲームを作っています。",
   email: "test@test",
   password: 111111,
-  image: open("./app/assets/images/no_image.png")
+  image: open("./app/assets/images/rabbit.png")
 )
 
 # ユーザー2
 User.create(
-  name: "user2",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  name: "おかめ",
+  introduction: "ホラーばっかり作ってます。",
   email: "test2@test",
   password: 222222,
-  image: open("./app/assets/images/no_image.png")
+  image: open("./app/assets/images/okame.jpg")
 )
 
 # ユーザー3
@@ -53,23 +53,23 @@ Game.create(
 
 # ゲーム2
 Game.create(
-  user_id: 2,
+  user_id: 1,
   title: "なんとかひきとめろ！",
   introduction: "あなたは、もうフラレそう...。 望みは少ないけれど、あなたのタイピング力で、なんとか言葉巧みにひきとめろ！https://github.com/mmdrdr/typing"
 )
 
 # ゲーム3
 Game.create(
-  user_id: 3,
-  title: "test",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+  user_id: 2,
+  title: "呪われてるような古民家",
+  introduction: "まるで呪われているかのような古民家を探索するホラーゲームです。ただ、呪われていないので出てくるのはただの住人です。"
 )
 
 # ゲーム4
 Game.create(
-  user_id: 4,
-  title: "test",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+  user_id: 3,
+  title: "いきなりサバンナ",
+  introduction: "あなたが朝目覚めると、なぜかサバンナのシマウマになっていた。激動のサバンナを生き抜け！"
 )
 
 # ゲーム画像1
@@ -87,27 +87,32 @@ GameImage.create(
 end
 
 # ゲーム画像3
-GameImage.create(
-  game_id: 3,
-  image: open("./app/assets/images/aircraft.jpg")
-)
+4.times do |n|
+  GameImage.create(
+    game_id: 3,
+    image: open("./app/assets/images/horror#{n + 1}.jpg")
+  )
+end
 
 # ゲーム画像4
-GameImage.create(
-  game_id: 4,
-  image: open("./app/assets/images/aircraft.jpg")
-)
+3.times do |n|
+  GameImage.create(
+    game_id: 4,
+    image: open("./app/assets/images/savanna#{n + 1}.jpg")
+  )
+end
 
 # ジャンル
 Genre.create(
   [
     {name: "アクション"},
-    {name: "アドベンチャー"},
+    {name: "シミュレーション"},
     {name: "RPG"},
     {name: "パズル"},
     {name: "レース"},
     {name: "スポーツ"},
-    {name: "ミュージック"}
+    {name: "ミュージック"},
+    {name: "ホラー"}
   ]
 )
 
@@ -126,47 +131,52 @@ GameGenre.create(
 # ゲームジャンル3
 GameGenre.create(
   game_id: 3,
-  genre_id: 3
+  genre_id: 8
 )
 
 # ゲームジャンル4
 GameGenre.create(
   game_id: 4,
-  genre_id: 4
+  genre_id: 1,
+)
+
+GameGenre.create(
+  game_id: 4,
+  genre_id: 2,
 )
 
 Comment.create(
   user_id: 2,
   game_id: 1,
-  comment: "シンプルでわかりやすくてよかったです。ただ、シンプルすぎてちょっとものたりないかも。",
-)
-
-Comment.create(
-  user_id: 2,
-  game_id: 1,
-  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  comment: "ともてシンプルです。ただ、シンプルすぎてちょっとものたりないかも。",
 )
 
 Comment.create(
   user_id: 3,
   game_id: 1,
-  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  comment: "ちょっとボリュームがすくないかなー。",
 )
 
 Comment.create(
-  user_id: 1,
-  game_id: 2,
-  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  user_id: 4,
+  game_id: 1,
+  comment: "ひまつぶしにはなった。",
 )
 
 Comment.create(
   user_id: 2,
   game_id: 2,
-  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  comment: "まさにバカゲーでした。",
 )
 
 Comment.create(
   user_id: 3,
   game_id: 2,
-  comment: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  comment: "ひきとめる言葉がシュール",
+)
+
+Comment.create(
+  user_id: 4,
+  game_id: 2,
+  comment: "これで別れ話を切り出された時の対策ができました。",
 )
