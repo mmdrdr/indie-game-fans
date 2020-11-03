@@ -11,7 +11,9 @@
     <div class="d-flex flex-wrap">
       <% @genres.each do |genre| %>
         <div class="genre-badge">
-          <%= link_to genre.name, games_path(id: genre.id) %>
+          <%= link_to games_path(id: genre.id) do %>
+            <%= genre.name %>
+          <% end %>
         </div>
       <% end %>
     </div>
