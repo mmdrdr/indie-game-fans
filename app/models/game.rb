@@ -12,6 +12,6 @@ class Game < ApplicationRecord
   end
 
   validates :title, presence: true
-  validates :introduction, presence: true
+  validates :introduction, presence: true, length: { maximum: 200 }
 
 end

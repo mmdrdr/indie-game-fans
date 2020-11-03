@@ -18,8 +18,8 @@ class User < ApplicationRecord
 
   attachment :image
 
-  validates :name, presence: true, length: { maximum: 10 }
-  validates :introduction, length: { maximum: 100 }
+  validates :name, presence: true, length: { maximum: 10, minimum: 2 }
+  validates :introduction, length: { maximum: 200 }
   validates :image, presence: true
 
   def follow(user_id)
