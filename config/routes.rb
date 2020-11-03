@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks' 
   }
   root 'homes#top'
+  post 'guest' => 'homes#guest'
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     resource :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'

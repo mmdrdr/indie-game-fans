@@ -12,7 +12,19 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
+//= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+// game showのスライドショー
+document.addEventListener("turbolinks:load", function() {
+  $(function() {
+    $('#slider').slick({
+      arrows: false,
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 6000,
+    });
+  });
+});

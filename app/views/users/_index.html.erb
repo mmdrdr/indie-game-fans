@@ -1,18 +1,14 @@
-<% users.each do |user| %>
-  <table class="table">
-    <tr>
-      <td class="align-middle">
-        <%= attachment_image_tag user, :image, :fill, 150, 100 %>
-      </td>
-      <td class="align-middle">
-        <%= user.name %>
-      </td>
-      <td class="align-middle">
-        <%= truncate(user.introduction, :length => 20) %>
-      </td>
-      <td class="align-middle">
-        <%= link_to "もっと　くわしく", user_path(user), class: "nes-btn is-warning" %>
-      </td>
-    </tr>
-  </table>
-<% end %>
+<div class="d-flex flex-wrap">
+  <% users.each do |user| %>
+    <div class="table-item text-center">
+      <%= link_to user_path(user) do %>
+        <% if user.image.present? %>
+          <%= attachment_image_tag user, :image, size: "130x130" %>
+        <% else %>
+          <%= image_tag "no_image.png", size: "130x130" %>
+        <% end %>
+        <p><%= truncate(user.name, length: 10) %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
