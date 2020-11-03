@@ -55,7 +55,7 @@
   <div>
     <h4 class="mt-4">コメントする</h4>
     <%= form_with(model:[@game, @comment]) do |f| %>
-      <%= f.text_area :comment, rows: "5", class: "nes-textarea" %>
+      <%= f.text_area :comment, rows: "3", class: "nes-textarea" %>
       <% if user_signed_in? %>
         <%= f.submit "とうこう", class: "nes-btn is-primary" %>
       <% else %>

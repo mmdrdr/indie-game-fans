@@ -27,11 +27,11 @@ User.create(
 
 # ユーザー3
 User.create(
-  name: "user3",
-  introduction: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+  name: "ももたろう",
+  introduction: "リアルなグラフィックをつくるのが得意です。",
   email: "test3@test",
   password: 333333,
-  image: open("./app/assets/images/no_image.png")
+  image: open("./app/assets/images/momotaro.png")
 )
 
 # ユーザー4

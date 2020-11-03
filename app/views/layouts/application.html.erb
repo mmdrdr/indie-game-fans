@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="https://kit.fontawesome.com/19bf4597ee.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
@@ -67,6 +68,92 @@
           </nav>
         </div>
         <%= yield %>
+      </div>
+      <div class="row">
+        <footer class="d-block d-sm-none fixed-bottom">
+          <nav>
+            <ul class="d-flex flex-row">
+              <% if user_signed_in? %>
+                <li class="ml-5">
+                  <%= link_to root_path do %>
+                    <i class="fas fa-home"></i>
+                  <% end %>
+                </li>
+                <li class="ml-5">
+                  <%= link_to games_path do %>
+                    <i class="fas fa-gamepad"></i>
+                  <% end %>
+                </li>
+                <li class="ml-5">
+                  <%= link_to users_path do %>
+                    <i class="fas fa-users"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                  </div>
+                </li>
+                <div class="menu">
+                  <h2>MENU</h2>
+                  <ul>
+                    <li class="mt-2">
+                      <%= link_to "MY PAGE", user_path(current_user) %>
+                    </li>
+                    <li class="mt-2">
+                      <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしてよろしいですか？"} %>
+                    </li>
+                    <li class="mt-2">
+                      <%= link_to "CONTACT", new_contacts_path %>
+                    </li>
+                  </ul>
+                </div>
+              <% else %>
+                <li class="ml-5">
+                  <%= link_to root_path do %>
+                    <i class="fas fa-home"></i>
+                  <% end %>
+                </li>
+                <li class="ml-5">
+                  <%= link_to games_path do %>
+                    <i class="fas fa-gamepad"></i>
+                  <% end %>
+                </li>
+                <li class="ml-5">
+                  <%= link_to users_path do %>
+                    <i class="fas fa-users"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                  </div>
+                </li>
+                <div class="menu">
+                  <h2>MENU</h2>
+                  <ul>
+                    <li class="mt-2">
+                      <%= link_to "SIGN UP", new_user_registration_path %>
+                    </li>
+                    <li class="mt-2">
+                      <%= link_to "LOG IN", new_user_session_path %>
+                    </li>
+                    <li class="mt-2">
+                      <%= link_to "CONTACT", new_contacts_path %>
+                    </li>
+                  </ul>
+                </div>
+              <% end %>
+            </ul>
+          </nav>
+          <script>
+            $(function(){
+              $('.menu-btn').on('click', function(){
+                $('.menu').toggleClass('is-active');
+              });
+            }());
+          </script>
+        </footer>
       </div>
     </div>
   </body>

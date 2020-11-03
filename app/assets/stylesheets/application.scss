@@ -15,6 +15,12 @@
  */
 @import "bootstrap";
 
+.nes-octocat {
+  position: absolute;
+  right: 45px;
+  top: 365px;
+}
+
 *{
   box-sizing:border-box;
   padding: 0;
@@ -60,7 +66,21 @@ body{
 #about-btn{
   position: absolute;
   right: 20px;
-  top: 500px;
+  top: 450px;
+  background: #212529;
+  color: #ffcf10;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+  font-size: 25px;
+}
+
+#about-btn:hover {
+  background: #fff;
 }
 
 .table-item{
@@ -100,6 +120,100 @@ body{
   display: none;
 }
 
+@media screen and (max-width:425px) {
+
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  .top{
+    font-size: 4em;
+    margin-bottom: 50px;
+  }
+
+  .right-all {
+    margin: 10px 0 60px 0;
+  }
+
+  .table-item{
+    margin: 10px auto;
+  } 
+
+  .nes-input{
+    height: 30px;
+    width: 60%;
+  }
+
+  .nes-btn{
+    height: 30px;
+    line-height: 10px;
+  }
+
+  .nes-icon {
+    display: inline;
+    margin-bottom: 0;
+  }
+
+  #slider img {
+    height: 30vh;
+  }
+
+  footer {
+    padding-top: 10px;
+    background-color: rgba(33, 37 ,41, 0.9);
+  }
+
+  footer i {
+    color: #fff;
+  }
+
+  .menu-btn {
+    position: fixed;
+    bottom: 8px;
+    right: 40px;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #212529;
+    transform-origin: top right;
+    transform: rotateZ(-90deg);
+    transition: all .3s ease;
+  }
+
+  .menu h2{
+    color: #fff;
+  }
+
+  .menu a{
+    color: #fff;
+  }
+
+  .menu.is-active {
+    transform: rotateZ(0deg);
+  }
+
+}
+
 /*
 @media (prefers-color-scheme: dark) {
   body {
@@ -120,32 +234,3 @@ body{
   }
 }
 */
-
-@media screen and (max-width:425px) {
-
-  h1 {
-    font-size: 20px;
-  }
-
-  p {
-    font-size: 10px;
-  }
-
-  .top{
-    font-size: 4em;
-    margin-bottom: 50px;
-  }
-
-  .right-all {
-    margin: 10px 0 20px 0;
-  }
-
-  .nes-input{
-    width: 80%;
-  }
-
-  #slider img {
-    height: 30vh;
-  }
-
-}
