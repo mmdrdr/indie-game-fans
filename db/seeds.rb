@@ -8,7 +8,7 @@
 
 
 # ユーザー1
-User.create(
+User.create!(
   name: "中年うさぎ",
   introduction: "趣味でゲームを作っています。",
   email: "test@test",
@@ -69,7 +69,7 @@ Game.create(
 Game.create(
   user_id: 3,
   title: "いきなりサバンナ",
-  introduction: "あなたが朝目覚めると、なぜかサバンナのシマウマになっていた。激動のサバンナを生き抜け！"
+  introduction: "あなたが朝目覚めると、なぜかサバンナのシマウマになっていた。激動のサバンナを生き抜くシマウマシミュレーション！"
 )
 
 # ゲーム画像1

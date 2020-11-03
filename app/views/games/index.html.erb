@@ -1,4 +1,4 @@
-<div class="right-all col-10 col-md-8 offset-1">
+<div class="right-all col-12 col-md-8 offset-1">
   <div class="genre_badge">
     <h1>ゲームをさがす</h1>
     <h5>キーワードけんさく</h5>
@@ -7,14 +7,14 @@
       <%= hidden_field_tag :model, "game" %>
       <%= submit_tag 'けんさく', class: "nes-btn is-primary" %>
     <% end %>
-    <h5 class="mt-2">ジャンルけんさく</h5>
-    <% @genres.each do |genre| %>
-    <label class="nes-badge">
-      <span class="is-dark">
-        <%= link_to genre.name, games_path(id: genre.id) %>
-      </span>
-    </label>
-    <% end %>
+    <h5 class="mt-3">ジャンルけんさく</h5>
+    <div class="d-flex flex-wrap">
+      <% @genres.each do |genre| %>
+        <div class="genre-badge">
+          <%= link_to genre.name, games_path(id: genre.id) %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <h1 class="mt-4">ゲームたち</h1>

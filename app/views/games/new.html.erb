@@ -8,8 +8,11 @@
         </li>
       <% end %>
     <% end %>
-    <%= image_tag "no_image.png", size: "500x250", id: "img_prev" %>
-    <%= f.attachment_field :game_images_images, multiple: true, id: "post_post_img" %>
+    <h4>がぞう</h4>
+    <label>
+      <%= image_tag "camera.png", size: "500x250", id: "img_prev" %>
+      <%= f.attachment_field :game_images_images, multiple: true, id: "post_post_img", class: "image-field" %>
+    </label>
     <!--JavaScroptの読み込み-->
     <script type="text/javascript">
       $(function() {

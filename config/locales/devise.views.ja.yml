@@ -18,13 +18,15 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認用）
         remember_created_at: ログイン記憶時刻
-        remember_me: ログインを記憶する
+        remember_me: ログインをとうろく
         reset_password_sent_at: パスワードリセット送信時刻
         reset_password_token: パスワードリセット用トークン
         sign_in_count: ログイン回数
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        image: アイコン
+        name: おなまえを10もじいないで
     models:
       user: ユーザ
   devise:
@@ -143,4 +145,4 @@ ja:
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
   recaptcha: 
       errors: 
-        verification_failed: '認証に失敗しました。' 
+        verification_failed: 'もしかしてロボットですか？' 

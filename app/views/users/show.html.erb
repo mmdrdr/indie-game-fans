@@ -1,4 +1,4 @@
-<div class="right-all col-10 col-md-8 offset-1">
+<div class="right-all col-12 col-md-8 offset-1">
   <div>
     <%= attachment_image_tag @user, :image, size: "100x100" %>
     <%= @user.name %>
@@ -6,16 +6,18 @@
       <i class="fas fa-user-friends"></i>
       <%= @user.followed.count %>
     <% end %>
-    <% if @user == current_user %>
-      <%= link_to notifications_path do %>
-        <i class="fas fa-bell"></i>
-      <% end %>
-      <%= link_to "ゲームをついかする", new_game_path %>
-      <%= link_to "へんしゅう", edit_user_path(@user) %>
-      <%= link_to "たいかい", user_path(@user), method: :delete, data: {confirm: "ほんとうに たいかい してよろしいですか？"} %>
-    <% else %>
+    <% if @user != current_user %>
       <div id="follow_<%= @user.id %>" class="d-inline-block">
         <%= render 'follow', user: @user %>
+      </div>
+    <% end %>
+    <% if @user == current_user %>
+      <div>
+        <h4 class="mt-4">マイメニュー</h4>
+        <%= link_to "つうち", notifications_path %>
+        <%= link_to "ゲームをついかする", new_game_path %>
+        <%= link_to "へんしゅう", edit_user_path(@user) %>
+        <%= link_to "たいかい", user_path(@user), method: :delete, data: {confirm: "ほんとうに たいかい してよろしいですか？"} %>
       </div>
     <% end %>
   </div>
@@ -24,7 +26,7 @@
     <%= @user.introduction %>
   </div>
   <% if @games.count > 0 %>
-    <h4 class="d-inline-block mt-5">つくったゲーム</h4>
+    <h4 class="d-inline-block mt-4">つくったゲーム</h4>
     <div class="d-flex flex-wrap">
       <% @games.each do |game| %>
         <div class="table-item text-center">
