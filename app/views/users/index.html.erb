@@ -1,30 +1,23 @@
 <div class="right-all col-8 offset-1">
   <h1>クリエイターをさがす</h1>
+  <h5>キーワードけんさく</h5>
   <%= form_tag(search_path, method: :get) do %>
     <%= text_field_tag 'search[content]', "", class: "nes-input" %>
     <%= hidden_field_tag :model, "user" %>
-    <%= submit_tag 'Search', class: "nes-btn is-primary" %>
+    <%= submit_tag 'けんさく', class: "nes-btn is-primary" %>
   <% end %>
-  <div class="table-all">
-    <h1 class="mt-4">クリエイターたち</h1>
-    <% @users.each do |user| %>
-      <div class="table-item">
-        <table class="table table-borderless">
-          <tr>
-            <td class="align-middle">
-              <%= attachment_image_tag user, :image, size: "50x50" %>
-            </td>
-            <td class="align-middle">
-              <%= user.name %>
-            </td>
-            <td class="align-middle">
-              <%= truncate(user.introduction, :length => 20) %>
-            </td>
-            <td class="align-middle">
-              <%= link_to "もっと　くわしく", user_path(user), class: "nes-btn is-warning" %>
-            </td>
-          </tr>
-        </table>
+  <h1 class="mt-4">クリエイターたち</h1>
+  <div class="d-flex flex-wrap">
+    <% @games.each do |game| %>
+      <div class="table-item text-center">
+        <%= link_to user_path(game.user) do %>
+          <% if game.user.image.present? %>
+            <%= attachment_image_tag game.user, :image, size: "130x130" %>
+          <% else %>
+            <%= image_tag "no_image.png", size: "130x130" %>
+          <% end %>          
+          <p><%= truncate(game.user.name, length: 10) %></p>
+        <% end %>
       </div>
     <% end %>
   </div>

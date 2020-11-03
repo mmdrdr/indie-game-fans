@@ -7,11 +7,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="https://kit.fontawesome.com/19bf4597ee.js" crossorigin="anonymous"></script>
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -34,7 +38,7 @@
                   <%= link_to "MY PAGE", user_path(current_user) %>
                 </li>
                 <li>
-                  <%= link_to "LOG OUT", destroy_user_session_path, method: :delete %>
+                  <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしてよろしいですか？"} %>
                 </li>
                 <li>
                   <%= link_to "CONTACT", new_contacts_path %>

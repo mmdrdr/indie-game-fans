@@ -2,6 +2,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @game.game_images.build
   end
 
   def create
@@ -16,8 +17,10 @@ class GamesController < ApplicationController
   def index
     if params[:id]
       @games = Genre.find(params[:id]).games
+      @genres = Genre.all
     else
       @games = Game.all.order(created_at: :DESC)
+      @genres = Genre.all
     end
   end
 
@@ -47,7 +50,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:user_id, :title, :introduction, :image, genre_ids: [])
+    params.require(:game).permit(:user_id, :title, :introduction, game_images_images: [], genre_ids: [])
   end
 
 end

@@ -6,8 +6,11 @@
         <%= message %>
       <% end %>
     <% end %>
-    <%= image_tag "no_image.png", size: "100x100", id: "img_prev" %>
-    <%= f.attachment_field :image, id: "post_post_img" %>
+    <h4>アイコン</h4>
+    <label>
+      <%= image_tag "camera2.png", size: "100x100", id: "img_prev" %>
+      <%= f.attachment_field :image, id: "post_post_img", class: "image-field" %>
+    </label>
     <!--JavaScroptの読み込み-->
     <script type="text/javascript">
       $(function() {
