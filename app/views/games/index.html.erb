@@ -1,9 +1,8 @@
 <div class="right-all col-12 col-md-8 offset-1">
   <div class="genre_badge">
     <h1>ゲームをさがす</h1>
-    <h5>キーワードけんさく</h5>
     <%= form_tag(search_path, method: :get) do %>
-      <%= text_field_tag 'search[content]', "", class: "nes-input" %>
+      <%= text_field_tag 'search[content]', "", placeholder: "キーワードけんさく", class: "nes-input" %>
       <%= hidden_field_tag :model, "game" %>
       <%= submit_tag 'けんさく', class: "nes-btn is-primary" %>
     <% end %>

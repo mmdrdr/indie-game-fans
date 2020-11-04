@@ -230,7 +230,25 @@ body{
   }
 
   .table-item{
-    box-shadow: 0 1px 5px 0 rgba(255, 207, 16, .5);
+    box-shadow: 0 1px 10px 0 rgba(255, 207, 16, 1);
+  }
+
+  .table-item a{
+    color: #ffcf10;
+  }
+
+  #about-btn{
+    background: #ffcf10;
+    color: #212529;
+  }
+
+  .genre-badge {
+    background-color: #fff;
+  }
+
+  .genre-badge a {
+    color: #212529;
   }
 }
 */
+

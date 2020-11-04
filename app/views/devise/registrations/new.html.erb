@@ -1,5 +1,6 @@
 <div class="right-all col-12 col-md-8 offset-1">
   <h1>とうろく</h1>
+  <!-- ゲストログイン -->
   <p>ゲストは↓こちらからログインしてください。</p>
   <div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -13,53 +14,20 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <h6>❶ アイコン</h6>
-        <label>
-          <%= image_tag "camera2.png", size: "100x100", id: "img_prev" %>
-          <%= f.attachment_field :image, id: "post_post_img", class: "image-field" %>
-        </label>
-        <!--JavaScroptの読み込み-->
-        <script type="text/javascript">
-          $(function() {
-            // 関数の宣言 //
-            function readURL(input) {
-              if (input.files && input.files[0]) {
-                // FileReaderを読み込んでローカルファイルを操作できるようにする //
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                  $('#img_prev').attr('src', e.target.result);
-                }
-                /* ファイルをData URIとして読み込む。Data URI=外部ファイルを直接ウェブページに埋め込む手段。 */
-                reader.readAsDataURL(input.files[0]);
-              }
-            }
-            // 新しい画像をアップロードした際の処理 //
-            $("#post_post_img").change(function() {
-              readURL(this);
-            });
-          });
-        </script>
-      </div>
 
       <div class="field">
-        <h6 class="mt-4">❷ おなまえ（10まで）</h6>
-        <%= f.text_field :name, autofocus: true, class: "nes-input" %>
-      </div>
-
-      <div class="field">
-        <h6 class="mt-4">❸ メールアドレス</h6>
+        <h6 class="mt-4">メールアドレス</h6>
         <%= f.email_field :email, autocomplete: "email", class: "nes-input" %>
       </div>
 
       <div class="field">
-        <h6 class="mt-4">❹ パスワード（6いじょう）</h6>
-        <%= f.password_field :password, autocomplete: "new-password", class: "nes-input" %>
-        <i toggle="#password-field" class="fas fa-eye toggle-password"></i>
+        <h6 class="mt-4">パスワード</h6>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "6もじいじょう", class: "nes-input" %>
+        <i class="fas fa-eye toggle-password"></i>
       </div>
 
+      <!-- パスワードの表示・非表示切替 -->
       <script>
-        // パスワードの表示・非表示切替
         $(".toggle-password").click(function() {
           // iconの切り替え
           $(this).toggleClass("fa-eye fa-eye-slash");
@@ -75,6 +43,7 @@
         });
       </script>
 
+      <!-- reCaptcha -->
       <div class="mt-4">
         <%= recaptcha_tags %>
       </div>
@@ -82,6 +51,14 @@
       <div class="actions mt-3">
         <%= f.submit "とうろく", class: "nes-btn is-primary" %>
       </div>
+    <% end %>
+  </div>
+
+  <div class="mt-4">
+    <h3>ソーシャルログイン</h3>
+    <p>SNSアカウントでとうろくできます。</p>
+    <%= link_to user_facebook_omniauth_authorize_path do %>
+      <i class="nes-icon facebook"></i>
     <% end %>
   </div>
 </div>
