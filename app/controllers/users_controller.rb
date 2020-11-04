@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 
   def index
-    @games = Game.all.order(created_at: :DESC)
+    @users = User.all.order(created_at: :DESC)
   end
 
   def show
     @user = User.find(params[:id])
-    @users = @user.following_user
+    @users = @user.following_user.order(created_at: :DESC)
     @games = Game.where(user_id: @user.id).order(created_at: :DESC)
   end
 

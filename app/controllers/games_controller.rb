@@ -15,12 +15,11 @@ class GamesController < ApplicationController
   end
 
   def index
+    @genres = Genre.all
     if params[:id]
-      @games = Genre.find(params[:id]).games
-      @genres = Genre.all
+      @games = Genre.find(params[:id]).games.page(params[:page]).per(6).reverse_order
     else
-      @games = Game.all.order(created_at: :DESC)
-      @genres = Genre.all
+      @games = Game.all.page(params[:page]).per(6).reverse_order      
     end
   end
 
