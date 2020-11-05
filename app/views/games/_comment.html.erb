@@ -1,7 +1,11 @@
 <% if game.comments.exists? %>
   <% game.comments.each do |comment| %>
     <div class="mt-4">
-      <%= attachment_image_tag comment.user, :image, size: "50x50", placeholder: 'no_image.png' %>
+      <% if comment.user.image.present? %>
+        <%= attachment_image_tag comment.user, :image, size: "50x50", placeholder: 'no_image.png' %>
+      <% else %>
+        <%= image_tag "no_image.png", size: "50x50" %>
+      <% end %>
       <%= link_to user_path(comment.user) do %>
         <%= comment.user.name %>
       <% end %>

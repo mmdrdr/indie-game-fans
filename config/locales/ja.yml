@@ -1,14 +1,17 @@
 ja:
   activerecord:
     models:
+      user:
       game: ゲーム
       contact: お問い合わせ
     attributes:
+        user:
+          introduction: じこしょうかい
         game:
-          game_images: がぞう
+          game_image_ids: がぞう
           title: タイトル
           introduction: せつめい
-          genres: ジャンル
+          game_genre_ids: ジャンル
         contact:
           name: おなまえ
           email: メールアドレス

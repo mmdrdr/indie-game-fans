@@ -1,0 +1,3 @@
+$('#view_more').remove();
+$('#games_index').append("<%= j(render 'index', games: @games ) %>")
+$('#games_index').append("<%= j link_to_next_page(@games, 'もっとみる', id: 'view_more', remote: true) %>")
