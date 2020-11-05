@@ -94,3 +94,6 @@ gem 'recaptcha', require: "recaptcha/rails"
 
 # pry
 gem 'pry-rails'
+
+# kaminari
+gem 'kaminari','~> 1.2.1'

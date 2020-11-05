@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNTZNT0WDJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VNTZNT0WDJ');
+    </script>    
     <title>IndieGameFans</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/19bf4597ee.js" crossorigin="anonymous"></script>
+
+    <!-- NES.css -->
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- slick -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -24,50 +43,105 @@
         <div class="header col-3 text-right d-none d-md-block">
           <nav>
             <ul>
-              <% if user_signed_in? %>
-                <li>
-                  <%= link_to "TOP", root_path %>
-                </li>
-                <li>
-                  <%= link_to "GAME", games_path %>
-                </li>
-                <li>
-                  <%= link_to "CREATOR", users_path %>
-                </li>
+              <li>
+                <%= link_to "TOP", root_path %>
+              </li>
+              <li>
+                <%= link_to "GAME", games_path %>
+              </li>
+              <li>
+                <%= link_to "CREATOR", users_path %>
+              </li>
+              <% if user_signed_in? %>  
                 <li>
                   <%= link_to "MY PAGE", user_path(current_user) %>
                 </li>
                 <li>
                   <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしてよろしいですか？"} %>
                 </li>
-                <li>
-                  <%= link_to "CONTACT", new_contacts_path %>
-                </li>
               <% else %>
-                <li>
-                  <%= link_to "TOP", root_path %>
-                </li>
-                <li>
-                  <%= link_to "GAME", games_path %>
-                </li>
-                <li>
-                  <%= link_to "CREATOR", users_path %>
-                </li>
                 <li>
                   <%= link_to "SIGN UP", new_user_registration_path %>
                 </li>
                 <li>
                   <%= link_to "LOG IN", new_user_session_path %>
                 </li>
-                <li>
-                  <%= link_to "CONTACT", new_contacts_path %>
-                </li>
               <% end %>
+              <li>
+                <%= link_to "CONTACT", new_contacts_path %>
+              </li>
             </ul>
           </nav>
         </div>
         <%= yield %>
       </div>
     </div>
+
+    <!-- フッター（スマホの時のみ表示） -->
+    <footer class="d-block d-sm-none fixed-bottom">
+      <nav>
+        <ul class="d-flex flex-row">            
+          <li class="ml-5">
+            <%= link_to root_path do %>
+              <i class="fas fa-home"></i>
+            <% end %>
+          </li>
+          <li class="ml-5">
+            <%= link_to games_path do %>
+              <i class="fas fa-gamepad"></i>
+            <% end %>
+          </li>
+          <li class="ml-5">
+            <%= link_to users_path do %>
+              <i class="fas fa-users"></i>
+            <% end %>
+          </li>
+          <li>
+            <div class="menu-btn">
+              <i class="fas fa-bars"></i>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- ハンバーガーメニュー（スマホの時のみ表示）  -->            
+      <div class="menu">
+        <h2>MENU</h2>
+        <% if user_signed_in? %>
+          <ul>
+            <li class="mt-2">
+              <%= link_to "MY PAGE", user_path(current_user) %>
+            </li>
+            <li class="mt-2">
+              <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしてよろしいですか？"} %>
+            </li>
+            <li class="mt-2">
+              <%= link_to "CONTACT", new_contacts_path %>
+            </li>
+          </ul>
+        <% else %>
+          <ul>
+            <li class="mt-2">
+              <%= link_to "SIGN UP", new_user_registration_path %>
+            </li>
+            <li class="mt-2">
+              <%= link_to "LOG IN", new_user_session_path %>
+            </li>
+            <li class="mt-2">
+              <%= link_to "CONTACT", new_contacts_path %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+
+      <!-- ハンバーガーメニューのアニメーション -->
+      <script>
+        $(function(){
+          $('.menu-btn').on('click', function(){
+            $('.menu').toggleClass('is-active');
+          });
+        }());
+      </script>
+    </footer>
   </body>
 </html>

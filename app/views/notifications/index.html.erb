@@ -6,7 +6,11 @@
         <table class="table table-borderless">
           <tr>
             <td class="align-middle">
-              <%= attachment_image_tag notification.visitor, :image, size: "50x50" %>
+              <% if notification.visitor.image.present? %>
+                <%= attachment_image_tag notification.visitor, :image, size: "50x50" %>
+              <% else %>
+                <%= image_tag "no_image.png", size: "50x50" %>
+              <% end %>
             </td>
             <td class="align-middle">
               <%= link_to user_path(notification.visitor) do %>

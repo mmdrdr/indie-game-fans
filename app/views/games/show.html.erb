@@ -6,21 +6,8 @@
       <%= attachment_image_tag image, :image, size: "500x250" %>
     <% end %>
   </div>
-  <div class="d-flex flex-wrap">
-    <div id="favorite_button_<%= @game.id %>">
-      <%= render 'favorite', game: @game %>
-    </div>
-    <div class="ml-2">
-      <!--Facebookはローカルではエラー、本番環境で試す-->
-      <%= link_to "http://www.facebook.com/share.php?u=#{request.url}", target: '_blank' do %>
-        <i class="nes-icon facebook"></i>
-      <% end %>
-    </div>
-    <div class="ml-2">
-      <%= link_to "https://twitter.com/share?url=#{request.url}", target: '_blank' do %>
-        <i class="nes-icon twitter"></i>
-      <% end %>
-    </div>
+  <div id="favorite_button_<%= @game.id %>">
+    <%= render 'favorite', game: @game %>
   </div>
   <% if @game.user == current_user %>
     <div>
@@ -48,6 +35,20 @@
   <%= link_to user_path(@game.user) do %>
     <%= @game.user.name %>
   <% end %>
+  <h4 class="mt-4 mb-3">このゲームをシェア</h4>
+  <div class="d-flex flex-wrap">
+    <div class="ml-2">
+      <!--Facebookはローカルではエラー、本番環境で試す-->
+      <%= link_to "http://www.facebook.com/share.php?u=#{request.url}", target: '_blank' do %>
+        <i class="nes-icon facebook"></i>
+      <% end %>
+    </div>
+    <div class="ml-2">
+      <%= link_to "https://twitter.com/share?url=#{request.url}", target: '_blank' do %>
+        <i class="nes-icon twitter"></i>
+      <% end %>
+    </div>
+  </div>
   <h4 class="mt-4 mb-3">みんなのコメント</h4>
   <div id="comment_<%= @game.id %>">
     <%= render 'comment', game: @game %>
@@ -55,11 +56,11 @@
   <div>
     <h4 class="mt-4">コメントする</h4>
     <%= form_with(model:[@game, @comment]) do |f| %>
-      <%= f.text_area :comment, rows: "5", class: "nes-textarea" %>
+      <%= f.text_area :comment, rows: "3", placeholder: "とうこうできるのは1〜200もじまでです。", class: "nes-textarea" %>
       <% if user_signed_in? %>
         <%= f.submit "とうこう", class: "nes-btn is-primary" %>
       <% else %>
-        <%= link_to "とうこう", new_user_session_path, class: "nes-btn is-primary", remote: true %>
+        <%= link_to "とうこう", new_user_session_path, class: "nes-btn is-primary" %>
       <% end %>
     <% end %>
   </div>
