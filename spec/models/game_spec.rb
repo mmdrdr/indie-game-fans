@@ -21,6 +21,18 @@ RSpec.describe 'Gameモデルのテスト', type: :model do
         expect(game.valid?).to eq false;
       end
     end
+    context 'game_image' do
+      it '空欄でないこと' do
+        game.game_image_ids = ''
+        expect(game.valid?).to eq false;
+      end
+    end
+    context 'game_genre' do
+      it '空欄でないこと' do
+        game.game_genre_ids = ''
+        expect(game.valid?).to eq false;
+      end
+    end
   end
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
