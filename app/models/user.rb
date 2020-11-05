@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   attachment :image
 
-  validates :name, length: { maximum: 10 }
+  validates :name, presence: true, length: { maximum: 10 }
   validates :introduction, length: { maximum: 200 }
 
   def follow(user_id)
@@ -54,6 +54,12 @@ class User < ApplicationRecord
       )
     end
     user
+  end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@guest.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
   end
 
 end

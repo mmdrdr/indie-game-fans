@@ -10,6 +10,12 @@ RSpec.describe 'Contactモデルのテスト', type: :model do
         expect(contact.valid?).to eq false;
       end
     end
+    context 'emailカラム' do
+      it '空欄でないこと' do
+        contact.email = ''
+        expect(contact.valid?).to eq false;
+      end
+    end
     context 'contentカラム' do
       it '空欄でないこと' do
         contact.content = ''
