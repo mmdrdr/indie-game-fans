@@ -3,7 +3,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :check_captcha, only: [:create]
   prepend_before_action :customize_sign_up_params, only: [:create]
-  before_action :guest, only: [:edit, :update, :destroy]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -73,13 +72,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.validate
     unless verify_recaptcha(model: resource)
       respond_with_navigational(resource) { render :new }
-    end
-  end
-
-  def guest
-    if @user.email == "ENV['TEST_USER_MAIL']"
-      flash[:notice] = "テストユーザーのため変更できません"
-      redirect_to root_path
     end
   end
 

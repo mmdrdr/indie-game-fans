@@ -1,14 +1,16 @@
 <div class="d-flex flex-wrap">
   <% users.each do |user| %>
-    <div class="table-item text-center">
-      <%= link_to user_path(user) do %>
-        <% if user.image.present? %>
-          <%= attachment_image_tag user, :image, size: "130x130" %>
-        <% else %>
-          <%= image_tag "no_image.png", size: "130x130" %>
+    <% if user.games.present? %>
+      <div class="table-item text-center">
+        <%= link_to user_path(user) do %>
+          <% if user.image.present? %>
+            <%= attachment_image_tag user, :image, size: "130x130" %>
+          <% else %>
+            <%= image_tag "no_image.png", size: "130x130" %>
+          <% end %>
+          <p><%= truncate(user.name, length: 10) %></p>
         <% end %>
-        <p><%= truncate(user.name, length: 10) %></p>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
