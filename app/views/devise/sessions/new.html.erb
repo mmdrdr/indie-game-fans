@@ -4,11 +4,7 @@
   <!-- ゲストログイン -->
   <p>ゲストは↓こちらからログインしてください。</p>
   <div>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.hidden_field :email ,value: ENV['TEST_USER_MAIL'] %>
-      <%= f.hidden_field :password ,value: ENV['TEST_USER_PASSWORD'] %>
-      <%= f.submit "ゲストログイン", class: "nes-btn is-success" %>
-    <% end %>
+    <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "nes-btn is-success" %>
   </div>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
