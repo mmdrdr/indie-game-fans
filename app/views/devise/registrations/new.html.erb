@@ -28,7 +28,7 @@
         $(".toggle-password").click(function() {
           // iconの切り替え
           $(this).toggleClass("fa-eye fa-eye-slash");
-          
+
           // 入力フォームの取得
           var input = $(this).prev("input");
           // type切替
@@ -39,11 +39,6 @@
           }
         });
       </script>
-
-      <!-- reCaptcha -->
-      <div class="mt-4">
-        <%= recaptcha_tags %>
-      </div>
 
       <div class="actions mt-3">
         <%= f.submit "とうろく", class: "nes-btn is-primary" %>
