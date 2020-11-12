@@ -9,6 +9,27 @@
   <div id="favorite_button_<%= @game.id %>">
     <%= render 'favorite', game: @game %>
   </div>
+
+  <!--ブロック崩し-->
+  <% if @game.id == 1 %>
+    <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="mmdrdr" data-slug-hash="RwREaQy" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="block_break">
+      <span>See the Pen <a href="https://codepen.io/mmdrdr/pen/RwREaQy">
+      block_break</a> by mmdrdr (<a href="https://codepen.io/mmdrdr">@mmdrdr</a>)
+      on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+  <% end %>
+
+  <!--タイピングゲーム-->
+  <% if @game.id == 2 %>
+    <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="mmdrdr" data-slug-hash="ZEOVWpE" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="typing">
+      <span>See the Pen <a href="https://codepen.io/mmdrdr/pen/ZEOVWpE">
+      typing</a> by mmdrdr (<a href="https://codepen.io/mmdrdr">@mmdrdr</a>)
+      on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+　<% end %>
+
   <% if @game.user == current_user %>
     <div>
       <h4 class="mt-4">クリエイターメニュー</h4>
