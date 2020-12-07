@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # ログイン後遷移ページの指定(devise由来)
   def after_sign_in_path_for(resource)
     user_path(resource)
   end
