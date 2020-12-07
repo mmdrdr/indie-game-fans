@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   resource :contacts, only: [:new, :create] do
     get "/thanks" => "contacts#thanks"
   end
-  resources :notifications, only: [:index]
+  resources :notifications, only: [:index, :destroy]
 end

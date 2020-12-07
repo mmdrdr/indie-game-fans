@@ -15,7 +15,7 @@
               <%= attachment_image_tag user, :image, size: "130x130" %>
             <% else %>
               <%= image_tag "no_image.png", size: "130x130" %>
-            <% end %>          
+            <% end %>
             <p><%= truncate(user.name, length: 10) %></p>
           <% end %>
         </div>

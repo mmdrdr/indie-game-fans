@@ -1,6 +1,7 @@
 <div class="right-all col-12 col-md-8 offset-1">
   <h1>おしらせ</h1>
   <% if @notifications.exists? %>
+  <%= link_to "おしらせをさくじょする", notification_path(@notifications), method: :delete, data: { confirm: 'さくじょしてよろしいですか？' } %>
     <% @notifications.each do |notification| %>
       <div class="table-item">
         <table class="table table-borderless">
