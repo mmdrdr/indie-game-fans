@@ -45,8 +45,8 @@
 https://docs.google.com/spreadsheets/d/1KU05wv0bjrHyg0AT17tM8X1nJcjr2Nd2-wYLji7qWF4/edit#gid=0
 
 ## 開発環境
-- OS：macOS Catalina
-- 言語：HTML,CSS,JavaScript,Ruby 2.5.7,SQL
-- フレームワーク：Ruby on Rails 5.2.4
-- JSライブラリ：jQuery
-- 仮想環境：Vagrant,VirtualBox
+- OS： macOS Catalina
+- 言語： HTML, CSS, JavaScript, Ruby 2.5.7, SQL
+- フレームワーク： Ruby on Rails 5.2.4
+- JSライブラリ： jQuery
+- 仮想環境： Vagrant, VirtualBox
