@@ -33,12 +33,13 @@
 インディーゲームプレイヤー　次にプレイするゲームを探したい時。ファンになった制作者の情報を追いたい時。  
 
 ## 設計書
-- ER図 https://drive.google.com/file/d/1WHASvVJm7Q3-vNVIImzjoOMz5vuq68Ew/view?usp=sharing
-- ワイヤーフレーム https://xd.adobe.com/view/17b49168-92f3-427e-afb0-d533b73021e9-42e7/?fullscreen
+- ER図
+<img width="799" alt="スクリーンショット 2020-12-08 16 03 50" src="https://user-images.githubusercontent.com/69283772/101451189-11ef9880-396f-11eb-9411-4211245f4307.png">
+
 - テーブル定義書 https://drive.google.com/file/d/1lRTXXSZ6b-skneGC4ugdu6hTRegmdoXF/view?usp=sharing
 - アプリケーション詳細設計書 https://drive.google.com/file/d/1-nVujrrpcmR3XG1aBeHKZJC3ZJMHyGfm/view?usp=sharing
 
-## インフラ設計図
+- インフラ設計図
 <img width="667" alt="スクリーンショット 2020-12-08 14 38 52" src="https://user-images.githubusercontent.com/69283772/101444582-23cb3e80-3963-11eb-8a19-a41a988b4644.png">
 
 ### 機能一覧
