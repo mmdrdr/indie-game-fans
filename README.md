@@ -34,7 +34,7 @@
 
 ## 設計書
 - ER図
-<img width="799" alt="スクリーンショット 2020-12-08 16 03 50" src="https://user-images.githubusercontent.com/69283772/101451189-11ef9880-396f-11eb-9411-4211245f4307.png">
+<img width="731" alt="スクリーンショット 2020-12-08 16 06 10" src="https://user-images.githubusercontent.com/69283772/101452284-d1911a00-3970-11eb-88f3-bce408212180.png">
 
 - テーブル定義書 https://drive.google.com/file/d/1lRTXXSZ6b-skneGC4ugdu6hTRegmdoXF/view?usp=sharing
 - アプリケーション詳細設計書 https://drive.google.com/file/d/1-nVujrrpcmR3XG1aBeHKZJC3ZJMHyGfm/view?usp=sharing
