@@ -6,6 +6,9 @@ RSpec.describe 'Commentモデルのテスト', type: :model do
     let(:game) { FactoryBot.build(:game) }
     let!(:comment) { FactoryBot.build(:comment, user: user, game: game) }
 
+    it "作成できること" do
+      expect(comment.valid?).to eq true;
+    end
     context 'commentカラム' do
       it '空欄でないこと' do
         comment.comment = ""

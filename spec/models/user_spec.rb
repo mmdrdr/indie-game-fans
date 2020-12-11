@@ -10,9 +10,19 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         test_user.name = ''
         is_expected.to eq false;
       end
+      it '空欄の場合はエラーが表示されること' do
+        user.name = ''
+        user.valid?
+        expect(user.errors[:name]).to include("を入力してください")
+      end
       it '10文字以下であること' do
         test_user.name = Faker::Lorem.characters(number:11)
         is_expected.to eq false;
+      end
+      it '空欄の場合はエラーが表示されること' do
+        test_user.name = Faker::Lorem.characters(number:11)
+        user.valid?
+        expect(user.errors[:name]).to include("は10文字以内で入力してください")
       end
     end
 

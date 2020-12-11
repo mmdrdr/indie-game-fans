@@ -10,11 +10,21 @@ RSpec.describe 'Gameモデルのテスト', type: :model do
         game.title = ''
         expect(game.valid?).to eq false;
       end
+      it '空欄の場合はエラーが表示されること' do
+        game.title = ''
+        game.valid?
+        expect(game.errors[:title]).to include("を入力してください")
+      end
     end
     context 'introductionカラム' do
       it '空欄でないこと' do
         game.introduction = ''
         expect(game.valid?).to eq false;
+      end
+      it '空欄の場合はエラーが表示されること' do
+        game.introduction = ''
+        game.valid?
+        expect(game.errors[:introduction]).to include("を入力してください")
       end
       it '200文字以下であること' do
         game.introduction = Faker::Lorem.characters(number:201)
