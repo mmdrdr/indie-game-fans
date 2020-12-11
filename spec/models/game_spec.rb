@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Gameモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
-    let(:user) { FactoryBot.create(:user) }
+    let(:user) { FactoryBot.build(:user) }
     let!(:game) { FactoryBot.build(:game, user_id: user.id) }
 
     context 'titleカラム' do
