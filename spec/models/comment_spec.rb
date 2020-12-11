@@ -17,4 +17,11 @@ RSpec.describe 'Commentモデルのテスト', type: :model do
       end
     end
   end
+  describe 'アソシエーションのテスト' do
+    context 'Gameモデルとの関係' do
+      it 'N:1となっている' do
+        expect(Comment.reflect_on_association(:game).macro).to eq :belongs_to
+      end
+    end
+  end
 end
