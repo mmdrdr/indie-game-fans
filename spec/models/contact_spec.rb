@@ -5,24 +5,26 @@ RSpec.describe 'Contactモデルのテスト', type: :model do
     let(:contact) { FactoryBot.create(:contact) }
 
     it "作成できること" do
-      expect(contact.valid?).to eq true;
+      expect(contact.valid?).to eq true
     end
     context 'nameカラム' do
       it '空欄でないこと' do
         contact.name = ''
-        expect(contact.valid?).to eq false;
+        expect(contact.valid?).to eq false
       end
     end
+
     context 'emailカラム' do
       it '空欄でないこと' do
         contact.email = ''
-        expect(contact.valid?).to eq false;
+        expect(contact.valid?).to eq false
       end
     end
+
     context 'contentカラム' do
       it '空欄でないこと' do
         contact.content = ''
-        expect(contact.valid?).to eq false;
+        expect(contact.valid?).to eq false
       end
     end
   end

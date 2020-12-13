@@ -77,7 +77,7 @@ gem 'jquery-rails'
 # 環境変数化
 gem 'dotenv-rails'
 group :production do
-gem 'mysql2'
+  gem 'mysql2'
 end
 
 # 日本語化
@@ -96,4 +96,4 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'pry-rails'
 
 # kaminari
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'

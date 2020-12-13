@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-
   def new
     @game = Game.new
     @game.game_images.build
@@ -19,7 +18,7 @@ class GamesController < ApplicationController
     if params[:id]
       @games = Genre.find(params[:id]).games.page(params[:page]).per(6).reverse_order
     else
-      @games = Game.all.page(params[:page]).per(6).reverse_order      
+      @games = Game.all.page(params[:page]).per(6).reverse_order
     end
   end
 
@@ -48,8 +47,8 @@ class GamesController < ApplicationController
   end
 
   private
+
   def game_params
     params.require(:game).permit(:user_id, :title, :introduction, game_images_images: [], genre_ids: [])
   end
-
 end
