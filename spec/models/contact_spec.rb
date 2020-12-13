@@ -4,6 +4,9 @@ RSpec.describe 'Contactモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     let(:contact) { FactoryBot.create(:contact) }
 
+    it "作成できること" do
+      expect(contact.valid?).to eq true;
+    end
     context 'nameカラム' do
       it '空欄でないこと' do
         contact.name = ''
