@@ -7,9 +7,10 @@ RSpec.describe 'Favoriteモデルのテスト', type: :model do
     let!(:favorite) { FactoryBot.build(:favorite, user: user, game: game) }
 
     it "作成できること" do
-      expect(favorite.valid?).to eq true;
+      expect(favorite.valid?).to eq true
     end
   end
+
   describe 'アソシエーションのテスト' do
     context 'Gameモデルとの関係' do
       it 'N:1となっている' do

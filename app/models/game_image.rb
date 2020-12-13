@@ -3,5 +3,4 @@ class GameImage < ApplicationRecord
   attachment :image
 
   validates :image, presence: true
-
 end

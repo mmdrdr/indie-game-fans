@@ -6,11 +6,11 @@ class Game < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   belongs_to :user
-  
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-  
+
   validates :game_image_ids, presence: true
   validates :title, presence: true
   validates :introduction, presence: true, length: { maximum: 200 }
