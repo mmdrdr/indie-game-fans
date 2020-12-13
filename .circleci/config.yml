@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.7-node-browsers
         environment:
-          - BUNDLER_VERSION: 1.17.2
+          - BUNDLER_VERSION: 2.1.4
           - RAILS_ENV: 'test'
     working_directory: ~/indie-game-fans
     steps:
@@ -14,10 +14,10 @@ jobs:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
       - run:
-          name: install dependencies
+          name: update bundler
           command: |
-            gem install bundler -v 1.17.2
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            gem update --system
+            gem install bundler
       - save_cache:
           paths:
             - ./vendor/bundle
