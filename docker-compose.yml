@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports: # -p
+      - '3000:3000'
+    volumes: # -v
+      - '.:/indie-game-fans'
+    tty: true # -t
+    stdin_open: true # -i
