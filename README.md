@@ -40,7 +40,7 @@
 - アプリケーション詳細設計書 https://drive.google.com/file/d/1-nVujrrpcmR3XG1aBeHKZJC3ZJMHyGfm/view?usp=sharing
 
 - インフラ設計図
-<img width="798" alt="スクリーンショット 2020-12-14 1 27 08" src="https://user-images.githubusercontent.com/69283772/102017648-8a10f080-3dab-11eb-8d8e-8a1c0aa443e2.png">
+<img width="802" alt="スクリーンショット 2020-12-14 18 26 41" src="https://user-images.githubusercontent.com/69283772/102064140-4dd8a100-3e3a-11eb-99a0-57541694a045.png">
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1KU05wv0bjrHyg0AT17tM8X1nJcjr2Nd2-wYLji7qWF4/edit#gid=0
