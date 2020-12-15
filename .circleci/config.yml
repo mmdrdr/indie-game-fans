@@ -38,3 +38,13 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+      - add_ssh_keys:
+            fingerprints:
+              - "71:ec:4e:bc:92:ef:b3:3d:a9:fb:28:dc:d8:a5:98:e0"         
+      - deploy:
+            name: Capistrano
+            command: |
+              if [ "${CIRCLE_BRANCH}" != "master" ]; then
+                exit 0
+              fi
+              bundle exec cap production deploy  
